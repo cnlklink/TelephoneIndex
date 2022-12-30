@@ -30,7 +30,7 @@ jobs:
       - name: Build
         run: |
           cd telephone-index
-          npm run build
+          npm run build --if-present
 
       - name: Launch application
         run: |
