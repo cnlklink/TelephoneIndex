@@ -3,7 +3,7 @@ name: Continuois Integration / Continuous Delivery Workflow for TelephoneIndex
 on: [push]
 
 jobs:
-  Build:
+  Setup-Build-Test:
     runs-on: ubuntu-latest
 
     steps:
@@ -12,6 +12,12 @@ jobs:
 
       - name: Set up Node.js
         uses: actions/setup-node@v1
+
+      - name: Install dependencies
+        run: |
+          npm install
+          cd telephone-index
+          npm install
 
       - name: Build
         run: |
