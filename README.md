@@ -1,5 +1,7 @@
 # Telephone Book (TypeScript/React Prototype)
 
+TypeScript / React based prototype of the Fermilab Telephone Index page.  The purpose is to demonstrate that TypeScript/ React can be used to develop the User Interface for web-based console applications.
+
 ## Running
 
 Run with `npm start`:
