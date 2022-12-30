@@ -22,7 +22,7 @@ test('homepage has title and links to intro page', async ({ page }) => {
 test( 'First test', async( {page} ) => {
   
   // Given I have entered the phone book page
-  await page.goto( 'https://localhost:8080/' )
+  await page.goto( 'http://localhost:3000/' )
 
   // Then I should see the title banner
   await expect( page ).toHaveTitle( /Telephone Index/ )
