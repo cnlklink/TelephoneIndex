@@ -20,10 +20,6 @@ jobs:
           cd telephone-index
           npm install
 
-      - name: Build
-        run: |
-          echo 'TODO - build step'
-
       - name: Unit test
         env:
           CI: true
@@ -31,12 +27,16 @@ jobs:
           cd telephone-index
           npm test
 
-      - name: Launch application
-        env:
-          CI: true
+      - name: Build
         run: |
           cd telephone-index
-          npm start
+          npm run build
+
+      - name: Launch application
+        run: |
+          cd telephone-index
+          npm install -g serve
+          serve -s build
 
       - name: Acceptance test
         run: |
