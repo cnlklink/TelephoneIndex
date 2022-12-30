@@ -16,6 +16,7 @@ async function navigatePageToHome( page: Page )
 
 async function assertTelephoneIndexIsDisplayedOn( on: Page )
 {
-  // Then I should see the title banner
+  // Then...
+  // I should see the title banner
   await expect( on ).toHaveTitle( /Telephone Index/ )
 }
