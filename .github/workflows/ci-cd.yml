@@ -5,6 +5,7 @@ on: [push]
 jobs:
   Setup-Build-Test:
     runs-on: ubuntu-latest
+    timeout-minutes: 2
 
     steps:
       - name: Checkout
@@ -39,5 +40,5 @@ jobs:
 
       - name: Acceptance test
         run: |
-          echo 'TODO - acceptance test step'
+          echo 'TODO: npx playwright test'
 
