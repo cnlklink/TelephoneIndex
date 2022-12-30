@@ -24,8 +24,11 @@ jobs:
           echo 'TODO - build step'
 
       - name: Unit test
+        env:
+          CI: true
         run: |
-          echo 'TODO - unit test step'
+          cd telephone-index
+          npm test
 
       - name: Acceptance test
         run: |
