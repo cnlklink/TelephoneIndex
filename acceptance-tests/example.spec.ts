@@ -1,30 +1,21 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, Page } from '@playwright/test';
 
-test('homepage has title and links to intro page', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
-
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Playwright/);
-
-  // create a locator
-  const getStarted = page.getByRole('link', { name: 'Get started' });
-
-  // Expect an attribute "to be strictly equal" to the value.
-  await expect(getStarted).toHaveAttribute('href', '/docs/intro');
-
-  // Click the get started link.
-  await getStarted.click();
-
-  // Expects the URL to contain intro.
-  await expect(page).toHaveURL(/.*intro/);
-});
-
-test( 'First test', async( {page} ) => {
+test( 'When I navigate to the home page, the telephone index is displayed', async( {page} ) => {
   
   // Given I have entered the phone book page
-  await page.goto( 'http://localhost:3000/' )
+  await navigatePageToHome( page )
 
-  // Then I should see the title banner
-  await expect( page ).toHaveTitle( /Telephone Index/ )
-
+  // Then the telephone index page is displayed
+  await assertTelephoneIndexIsDisplayedOn( page )
 })
+
+async function navigatePageToHome( page: Page )
+{
+  await page.goto( 'http://localhost:3000/' )
+}
+
+async function assertTelephoneIndexIsDisplayedOn( on: Page )
+{
+  // Then I should see the title banner
+  await expect( on ).toHaveTitle( /Telephone Index/ )
+}
