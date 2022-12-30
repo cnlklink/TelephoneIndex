@@ -20,7 +20,7 @@ jobs:
         run: |
           npm install
           npm ci
-          npm playwright install --with-deps
+          npx playwright install --with-deps
           cd telephone-index
           npm install
           npm ci
