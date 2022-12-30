@@ -25,3 +25,7 @@ npx playwright test
 ```
 
 (Note: you could also install the Playwright extension in VS Code.)
+
+## CI/CD
+
+GitHub Actions is used to execute the CI/CD pipeline.  Any commit to `main` will trigger a pipeline execution.  To edit the pipeline, see `.github/workflows/ci-cd.yml`.  To see the status of the pipeline, click the `Actions` tab from the GitHub page.
