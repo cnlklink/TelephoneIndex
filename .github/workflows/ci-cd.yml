@@ -30,6 +30,13 @@ jobs:
           cd telephone-index
           npm test
 
+      - name: Launch application
+        env:
+          CI: true
+        run: |
+          cd telephone-index
+          npm start
+
       - name: Acceptance test
         run: |
           echo 'TODO - acceptance test step'
