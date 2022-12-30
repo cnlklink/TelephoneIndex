@@ -39,7 +39,7 @@ jobs:
         run: |
           cd telephone-index
           npm install -g serve
-          serve -s build
+          serve -s build&
 
       - name: Acceptance test
         run: |
