@@ -1,0 +1,12 @@
+name: Continuois Integration / Continuous Delivery Workflow for TelephoneIndex
+
+on: [push]
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      run: echo 'TODO - more things'
