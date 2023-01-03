@@ -11,6 +11,8 @@ function App() {
       <header className="App-header">
         <h1> Telephone Index </h1>
       </header>
+
+      <p> No results found. </p>
     </div>
   );
 }
