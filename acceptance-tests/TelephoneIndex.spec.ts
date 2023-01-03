@@ -1,6 +1,6 @@
 import { test, expect, Page } from '@playwright/test';
 
-test( 'When I navigate to the home page, the telephone index is displayed', async( {page} ) => {
+test( 'Navigate to the home page, telephone index is displayed', async( {page} ) => {
   
   // Given I have entered the phone book page
   await navigatePageToHome( page )
