@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import QuickIndex from './components/QuickIndex'
+import SearchResults from './components/SearchResults'
 import './App.css';
 
 function App() {
@@ -15,9 +16,7 @@ function App() {
 
       <QuickIndex/>
 
-      <div id="search-results">
-        <p id="search-results-where"> No results found. </p>
-      </div>
+      <SearchResults/>
     </div>
   );
 }
