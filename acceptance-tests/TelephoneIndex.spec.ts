@@ -20,6 +20,11 @@ async function assertTelephoneIndexIsDisplayedOn( on: Page )
 {
   // I should see the title banner
   await expect( on ).toHaveTitle( /telephone index/i )
+
+  // And the quick index
+  const locator = on.locator( '#quick-index' )
+  await expect( locator ).toHaveText( /A/ )
+  await expect( locator ).toHaveText( /B/ )
 }
 
 async function assertThereAreNoResultsDisplayedOn( on: Page )
