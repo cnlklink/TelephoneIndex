@@ -1,3 +1,5 @@
+import './QuickIndex.css'
+
 import React from 'react';
 
 function QuickIndex() 

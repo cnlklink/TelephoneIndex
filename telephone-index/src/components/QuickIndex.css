@@ -1,0 +1,9 @@
+.quick-index {
+    display: block;
+    margin-top: 2em;
+}
+
+.quick-index-item {
+    display: inline;
+    margin-left: 1em;
+}
