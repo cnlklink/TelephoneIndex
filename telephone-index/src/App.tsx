@@ -12,6 +12,11 @@ function App() {
         <h1> Telephone Index </h1>
       </header>
 
+      <div id="quick-index">
+        <div className="quick-index-item"> A </div>
+        <div className="quick-index-item"> B </div>
+      </div>
+
       <div id="search-results">
         <p id="search-results-where"> No results found. </p>
       </div>
