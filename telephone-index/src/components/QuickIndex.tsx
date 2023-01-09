@@ -1,5 +1,7 @@
 import './QuickIndex.css'
 
+import QuickIndexItem from './QuickIndexItem'
+
 import React from 'react';
 
 function QuickIndex() 
@@ -8,7 +10,7 @@ function QuickIndex()
     <div id="quick-index">
         { 
             _getItems().map( (item, _) => {
-                return <div className="quick-index-item"> {item} </div>
+                return <QuickIndexItem text={item}/>
             } )
         }
     </div>
