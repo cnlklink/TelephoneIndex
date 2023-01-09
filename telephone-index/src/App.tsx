@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import QuickIndex from './components/QuickIndex'
 import SearchResults from './components/SearchResults'
+import SearchBar from './components/SearchBar'
 import './App.css';
 
 function App() {
@@ -15,6 +16,8 @@ function App() {
       </header>
 
       <QuickIndex/>
+
+      <SearchBar/>
 
       <SearchResults/>
     </div>
