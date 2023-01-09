@@ -12,4 +12,5 @@
   * Acceptance test: Click B, receive results starting with B, etc.
 * Acceptance test: Empty search, no results found
 * Move helper functions in TelephoneIndex.spec.ts into a custom Page class
+* Organize components folder
 
