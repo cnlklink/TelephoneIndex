@@ -6,6 +6,7 @@ test( 'Navigate to the home page, telephone index is displayed with no results',
   await navigatePageToHome( page )
 
   // Then the telephone index page is displayed
+  await assertSearchBarIsDisplayedOn( page )
   await assertTelephoneIndexIsDisplayedOn( page )
   await assertThereAreNoResultsDisplayedOn( page )
 })
@@ -14,6 +15,13 @@ async function navigatePageToHome( page: Page )
 {
   // I navigate to the application home page
   await page.goto( 'http://localhost:3000/' )
+}
+
+async function assertSearchBarIsDisplayedOn( on: Page )
+{
+  // I should see the search bar
+  const locator = on.locator( '#search-bar' )
+  await expect( locator ).toBeVisible()
 }
 
 async function assertTelephoneIndexIsDisplayedOn( on: Page )
