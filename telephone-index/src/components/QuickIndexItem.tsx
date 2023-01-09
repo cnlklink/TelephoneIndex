@@ -2,7 +2,11 @@ import './QuickIndex.css'
 
 import React from 'react';
 
-function QuickIndexItem( props: { text: string } ) 
+type QuickIndexItemProps = {
+    text: string
+}
+
+function QuickIndexItem( props: QuickIndexItemProps ) 
 {
   return (
     <div className='quick-index-item'>
