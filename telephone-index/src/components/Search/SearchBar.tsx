@@ -6,7 +6,7 @@ type SearchForm = {
 
 function SearchBar() 
 {
-    const [searchFormValues, setSearchFormValues] = useState<SearchForm>( { 
+    const [_, setSearchFormValues] = useState<SearchForm>( { 
         enteredCriteria: ''
     })
 
