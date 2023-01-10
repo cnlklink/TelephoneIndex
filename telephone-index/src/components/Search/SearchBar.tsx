@@ -4,10 +4,12 @@ function SearchBar()
 {
   return (
     <div id="search-bar">
-        <label>
-            Search:
-            <input name="search-criteria" type="text"/>
-        </label>
+        <form>
+            <label>
+                Search:
+                <input name="search-criteria" type="text"/>
+            </label>
+        </form>
     </div>
     )
 }
