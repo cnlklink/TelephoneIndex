@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import QuickIndex from './components/QuickIndex'
-import SearchResults from './components/SearchResults'
-import SearchBar from './components/SearchBar'
+import QuickIndex from './components/QuickIndex/QuickIndex'
+import SearchResults from './components/Search/SearchResults'
+import SearchBar from './components/Search/SearchBar'
 import './App.css';
 
 function App() {
