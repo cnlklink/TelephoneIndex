@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+type SearchForm = {
+    enteredCriteria: string
+}
 
 function SearchBar() 
 {
-    const searchCriteriaChangedHandler = () => {
-        console.log( "Search criteria changed!" )
+    const [searchFormValues, setSearchFormValues] = useState<SearchForm>( { 
+        enteredCriteria: ''
+    })
+
+    const searchCriteriaChangedHandler = ( event: React.ChangeEvent<HTMLInputElement> ) => {
+        setSearchFormValues( { 
+            enteredCriteria: event.target.value
+        } )
     }
 
     return (
