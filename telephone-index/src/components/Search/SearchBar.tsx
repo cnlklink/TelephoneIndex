@@ -6,14 +6,18 @@ type SearchForm = {
 
 function SearchBar() 
 {
-    const [searchFormInput, setSearchFormValues] = useState<SearchForm>( { 
+    /* eslint-disable @typescript-eslint/no-unused-vars */
+    const [_, setSearchFormValues] = useState<SearchForm>( { 
         enteredCriteria: ''
     } )
+    /* eslint-enable @typescript-eslint/no-unused-vars */
 
     const searchCriteriaChangedHandler = ( event: React.ChangeEvent<HTMLInputElement> ) => {
-        setSearchFormValues( { 
-            ...searchFormInput,
-            enteredCriteria: event.target.value
+        setSearchFormValues( (prevState) => {
+            return { 
+                ...prevState,
+                enteredCriteria: event.target.value
+            }
         } )
     }
 
