@@ -5,10 +5,12 @@ function SearchBar()
   return (
     <div id="search-bar">
         <form>
-            <label>
-                Search:
-                <input name="search-criteria" type="text"/>
-            </label>
+            <div className="search-bar__controls">
+                <div className="search-bar__control">
+                    <label> Search: </label>
+                    <input name="search-criteria" type="text"/>
+                </div>
+            </div>
         </form>
     </div>
     )
