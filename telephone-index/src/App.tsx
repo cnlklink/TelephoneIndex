@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import Header from './components/Layout/Header'
 import QuickIndex from './components/QuickIndex/QuickIndex'
 import SearchResults from './components/Search/SearchResults'
 import SearchBar from './components/Search/SearchBar'
@@ -11,9 +12,7 @@ function App() {
 
   return (
     <div className="Telephone-Index-App">
-      <header className="Telephone-Index-App-header">
-        <h1> Telephone Index </h1>
-      </header>
+      <Header/>
 
       <QuickIndex/>
 
