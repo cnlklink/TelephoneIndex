@@ -1,6 +1,6 @@
 import './QuickIndex.css'
 
-import React from 'react';
+import React, { useState } from 'react';
 
 type QuickIndexItemProps = {
     text: string
@@ -8,11 +8,15 @@ type QuickIndexItemProps = {
 
 function QuickIndexItem( props: QuickIndexItemProps ) 
 {
-  return (
-    <div className='quick-index-item'>
-        { props.text }
-    </div>
-  );
+    const clickHandler = () => {
+        alert( 'Item clicked = ' + props.text )
+    }
+
+    return (
+        <div className = 'quick-index-item' onClick = { clickHandler }>
+            { props.text }
+        </div>
+    );
 }
 
 export default QuickIndexItem;

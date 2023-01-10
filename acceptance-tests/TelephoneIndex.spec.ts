@@ -56,7 +56,8 @@ test( 'Click on A in Quick Index, 1 result is displayed', async( {page} ) => {
 
 async function clickQuickIndexItemOn( item: string, on: Page )
 {
-
+  const itemElement = await on.$( '#quick-index-item-' + item )
+  itemElement?.click()
 }
 
 async function assertThereAreNSearchResultsDisplayedOn( n: number, on: Page )
