@@ -52,6 +52,8 @@ test( 'Click on A in Quick Index, 1 result is displayed', async( {page} ) => {
 
   // Then 1 result is displayed
   await assertThereAreNSearchResultsDisplayedOn( 1, page )
+  await assertSearchResultsBeginWithLetterOn( 'A', page )
+  await assertNameAppearsInSearchResultsOn( 'Adamson, Phil', page )
 })
 
 async function clickQuickIndexItemOn( item: string, on: Page )
@@ -64,4 +66,14 @@ async function assertThereAreNSearchResultsDisplayedOn( n: number, on: Page )
 {
   const locator = on.locator( '#search-results-where' )
   await expect( locator ).toHaveText( n + ' results found.' )
+}
+
+async function assertSearchResultsBeginWithLetterOn( letter: string, on: Page )
+{
+
+}
+
+async function assertNameAppearsInSearchResultsOn( name: string, on: Page )
+{
+
 }
