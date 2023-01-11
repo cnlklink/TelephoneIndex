@@ -2,34 +2,9 @@ import React, { useEffect, useState } from 'react';
 import Header from './components/Layout/Header'
 import QuickIndex from './components/QuickIndex/QuickIndex'
 import Search from './components/Search/Search'
+import { SearchResults } from './adapters/TelephoneIndex'
+import ArrayBasedTelephoneIndex from './adapters/ArrayBasedTelephoneIndex'
 import './App.css';
-
-type SearchResults = 
-{
-  count: number
-}
-
-interface TelephoneIndex
-{
-  searchByQuickIndexItem( item: string ): SearchResults
-}
-
-class ArrayBasedTelephoneIndex implements TelephoneIndex
-{
-  searchByQuickIndexItem( item: string ): SearchResults
-  {
-    let count = 0
-
-    if( item === 'A' )
-    {
-      count = 1
-    }
-
-    return { 
-      count: count 
-    }
-  }
-}
 
 let _telephoneIndex = new ArrayBasedTelephoneIndex()
 
