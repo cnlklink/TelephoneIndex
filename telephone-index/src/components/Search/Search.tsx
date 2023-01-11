@@ -3,12 +3,16 @@ import React from 'react';
 import SearchBar from './SearchBar'
 import SearchResults from './SearchResults'
 
-function Search() 
+type SearchProps = {
+    numberOfSearchResults: number
+}
+
+function Search( props: SearchProps ) 
 {
     return (
         <div className='search'>
             <SearchBar/>
-            <SearchResults/>
+            <SearchResults numberOfResults={props.numberOfSearchResults}/>
         </div>
     )
 }

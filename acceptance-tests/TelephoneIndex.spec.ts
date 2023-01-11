@@ -49,10 +49,16 @@ test( 'Click on A in Quick Index, 1 result is displayed', async( {page} ) => {
 
   // When I click on the 'A' item in the quick index
   await clickQuickIndexItemOn( 'A', page )
+  await delay( 100 )
 
   // Then 1 result is displayed
   await assertThereAreNSearchResultsDisplayedOn( 1, page )
 })
+
+function delay( ms: number )
+{
+  return new Promise( (resolve) => setTimeout( resolve, ms ) )
+}
 
 async function clickQuickIndexItemOn( item: string, on: Page )
 {
@@ -63,5 +69,5 @@ async function clickQuickIndexItemOn( item: string, on: Page )
 async function assertThereAreNSearchResultsDisplayedOn( n: number, on: Page )
 {
   const locator = on.locator( '#search-results-where' )
-  await expect( locator ).toHaveText( n + ' results found' )
+  await expect( locator ).toHaveText( n + ' results found.' )
 }

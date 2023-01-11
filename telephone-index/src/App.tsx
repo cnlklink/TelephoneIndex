@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from './components/Layout/Header'
 import QuickIndex from './components/QuickIndex/QuickIndex'
-import SearchResults from './components/Search/SearchResults'
-import SearchBar from './components/Search/SearchBar'
+import Search from './components/Search/Search'
 import './App.css';
 
 function App() {
@@ -10,15 +9,26 @@ function App() {
     document.title = 'Telephone Index'
   }, [] );
 
+  const [numberOfSearchResults, setNumberOfSearchResults] = useState<number>( 0 )
+
+  const quickIndexItemSelectedHandler = ( item: string ) => {
+    if( item === 'A' )
+    {
+      setNumberOfSearchResults( 1 )
+    }
+    else
+    {
+      setNumberOfSearchResults( 0 )
+    }
+  }
+
   return (
     <div className="Telephone-Index-App">
       <Header/>
 
-      <QuickIndex/>
+      <QuickIndex onItemSelected={quickIndexItemSelectedHandler}/>
 
-      <SearchBar/>
-
-      <SearchResults/>
+      <Search numberOfSearchResults={numberOfSearchResults}/>
     </div>
   );
 }

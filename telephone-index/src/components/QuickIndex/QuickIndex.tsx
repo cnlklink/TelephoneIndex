@@ -4,13 +4,17 @@ import QuickIndexItem from './QuickIndexItem'
 
 import React from 'react';
 
-function QuickIndex() 
+type QuickIndexProps = {
+    onItemSelected: ( item: string ) => void
+}
+
+function QuickIndex( props: QuickIndexProps ) 
 {
   return (
     <div id="quick-index">
         { 
             _getItems().map( (item, _) => {
-                return <QuickIndexItem text={item}/>
+                return <QuickIndexItem onSelected={props.onItemSelected} text={item}/>
             } )
         }
     </div>
