@@ -11,11 +11,9 @@ type SearchResults = {
 let _numberOfSearchResults: number
 let _setNumberOfSearchResults: ( numberOfSearchResults: number ) => void 
 
-function App() {
-
-  useEffect( () => {
-    document.title = 'Telephone Index'
-  }, [] );
+function App() 
+{
+  _setTitle()
 
   _initializeReactState()
 
@@ -28,6 +26,13 @@ function App() {
       <Search numberOfSearchResults= { _numberOfSearchResults } />
     </div>
   );
+}
+
+function _setTitle() 
+{
+  useEffect( () => {
+    document.title = 'Telephone Index'
+  }, [] );
 }
 
 function _initializeReactState()
