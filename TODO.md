@@ -18,5 +18,7 @@
   * Acceptance test: type full name, see one result
 * Add some style
 * Move helper functions in TelephoneIndex.spec.ts into a custom Page class
+* Move service/ layer out into it's own package
+
 
 
