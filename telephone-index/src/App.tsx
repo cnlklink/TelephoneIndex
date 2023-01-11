@@ -4,9 +4,34 @@ import QuickIndex from './components/QuickIndex/QuickIndex'
 import Search from './components/Search/Search'
 import './App.css';
 
-type SearchResults = {
+type SearchResults = 
+{
   count: number
 }
+
+interface TelephoneIndex
+{
+  searchByQuickIndexItem( item: string ): SearchResults
+}
+
+class ArrayBasedTelephoneIndex implements TelephoneIndex
+{
+  searchByQuickIndexItem( item: string ): SearchResults
+  {
+    let count = 0
+
+    if( item === 'A' )
+    {
+      count = 1
+    }
+
+    return { 
+      count: count 
+    }
+  }
+}
+
+let _telephoneIndex = new ArrayBasedTelephoneIndex()
 
 let _numberOfSearchResults: number
 let _setNumberOfSearchResults: ( numberOfSearchResults: number ) => void 
@@ -42,14 +67,7 @@ function _initializeReactState()
 
 function _quickIndexItemSelectedHandler( item: string )
 {
-  if( item === 'A' )
-  {
-    _publishSearchResults( { count: 1 } )
-  }
-  else
-  {
-    _publishSearchResults( { count: 0 } )
-  }
+  _publishSearchResults( _telephoneIndex.searchByQuickIndexItem( item ) )
 }
 
 function _publishSearchResults( searchResults: SearchResults )
