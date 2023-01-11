@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "unit-tests": "mocha"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
