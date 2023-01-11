@@ -49,16 +49,10 @@ test( 'Click on A in Quick Index, 1 result is displayed', async( {page} ) => {
 
   // When I click on the 'A' item in the quick index
   await clickQuickIndexItemOn( 'A', page )
-  await delay( 100 )
 
   // Then 1 result is displayed
   await assertThereAreNSearchResultsDisplayedOn( 1, page )
 })
-
-function delay( ms: number )
-{
-  return new Promise( (resolve) => setTimeout( resolve, ms ) )
-}
 
 async function clickQuickIndexItemOn( item: string, on: Page )
 {
