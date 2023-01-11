@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Header from './components/Layout/Header'
 import QuickIndex from './components/QuickIndex/QuickIndex'
 import Search from './components/Search/Search'
-import { SearchResults } from './adapters/TelephoneIndex'
-import ArrayBasedTelephoneIndex from './adapters/ArrayBasedTelephoneIndex'
+import { SearchResults } from './service/TelephoneIndex'
+import ArrayBasedTelephoneIndex from './service/ArrayBasedTelephoneIndex'
 import './App.css';
 
 let _telephoneIndex = new ArrayBasedTelephoneIndex()
