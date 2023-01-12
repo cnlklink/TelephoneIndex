@@ -15,6 +15,15 @@ describe("ArrayBasedTelephoneIndex unit-tests", () => {
         _assertSearchResultsContainsNItems(results, 1);
         _assertSearchResultsContainsName(results, 'Adamson, Phil');
     });
+    it("searchByQuickIndexItem should return 2 results for 'B'", () => {
+        // Given ...
+        // When I searchByQuickIndexItem with 'B'
+        let results = _telephoneIndex.searchByQuickIndexItem("B");
+        // Then the results contain 2 items...
+        _assertSearchResultsContainsNItems(results, 2);
+        _assertSearchResultsContainsName(results, 'Brown, Bob');
+        _assertSearchResultsContainsName(results, 'Blueberry, Billy');
+    });
 });
 function _assertSearchResultsContainsNItems(results, containsNItems) {
     chai_1.assert.equal(containsNItems, results.count);
