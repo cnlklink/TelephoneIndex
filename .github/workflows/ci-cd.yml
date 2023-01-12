@@ -25,17 +25,17 @@ jobs:
           npm install
           npm ci
 
+      - name: Building
+        run: |
+          cd telephone-index
+          npm run build --if-present
+
       - name: Unit testing
         env:
           CI: true
         run: |
           npm run build-unit-tests
           npm run unit-tests
-
-      - name: Building
-        run: |
-          cd telephone-index
-          npm run build --if-present
 
       - name: Launching application
         run: |
