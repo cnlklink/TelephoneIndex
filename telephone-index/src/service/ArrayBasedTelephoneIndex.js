@@ -5,7 +5,14 @@ class ArrayBasedTelephoneIndex {
         let entries = Array();
         if (item === 'A') {
             entries.push({
-                name: "Adamson, Phil"
+                name: "Apple, Adam"
+            });
+        }
+        else if (item === 'B') {
+            entries.push({
+                name: "Brown, Bob"
+            }, {
+                name: "Blueberry, Billy"
             });
         }
         return {

@@ -3,9 +3,13 @@ import { assert } from "chai";
 import { SearchResults } from '../telephone-index/src/service/TelephoneIndex'
 import ArrayBasedTelephoneIndex from '../telephone-index/src/service/ArrayBasedTelephoneIndex'
 
-let _telephoneIndex = new ArrayBasedTelephoneIndex()
-
 describe( "ArrayBasedTelephoneIndex unit-tests", () => {
+
+    let _telephoneIndex: ArrayBasedTelephoneIndex
+
+    before( () => {
+        _telephoneIndex = new ArrayBasedTelephoneIndex()
+    })
 
     it("searchByQuickIndexItem should return 1 result for 'A'", () => {
         // Given ...
@@ -15,20 +19,20 @@ describe( "ArrayBasedTelephoneIndex unit-tests", () => {
 
         // Then the results contain only 1 result for "Adamson, Phil"
         _assertSearchResultsContainsNItems( results, 1 )
-        _assertSearchResultsContainsName( results, 'Adamson, Phil' )
-   });
+        _assertSearchResultsContainsName( results, 'Apple, Adam' )
+    });
 
-   it( "searchByQuickIndexItem should return 2 results for 'B'", () => {
-    // Given ...
+    it( "searchByQuickIndexItem should return 2 results for 'B'", () => {
+        // Given ...
 
-    // When I searchByQuickIndexItem with 'B'
-    let results = _telephoneIndex.searchByQuickIndexItem( "B" )
+        // When I searchByQuickIndexItem with 'B'
+        let results = _telephoneIndex.searchByQuickIndexItem( "B" )
 
-    // Then the results contain 2 items...
-    _assertSearchResultsContainsNItems( results, 2 )
-    _assertSearchResultsContainsName( results, 'Brown, Bob' )
-    _assertSearchResultsContainsName( results, 'Blueberry, Billy' )
-   })
+        // Then the results contain 2 items...
+        _assertSearchResultsContainsNItems( results, 2 )
+        _assertSearchResultsContainsName( results, 'Brown, Bob' )
+        _assertSearchResultsContainsName( results, 'Blueberry, Billy' )
+        })
 
 });
 
