@@ -1,7 +1,11 @@
-import SearchResults from "../components/Search/SearchResults"
+export type TelephoneIndexEntry =
+{
+  name: string
+}
 
 export type SearchResults = 
 {
+  entries: Array<TelephoneIndexEntry>
   count: number
 }
 

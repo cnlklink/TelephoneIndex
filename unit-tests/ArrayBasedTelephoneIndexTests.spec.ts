@@ -1,13 +1,39 @@
-// tests/calculator.spec.tx
 import { assert } from "chai";
 
-function addition (a: number, b: number): number {
-    return a + b;
- }
+import { SearchResults } from '../telephone-index/src/service/TelephoneIndex'
+import ArrayBasedTelephoneIndex from '../telephone-index/src/service/ArrayBasedTelephoneIndex'
 
-describe("Calculator Tests", () => {
-    it("should return 5 when 2 is added to 3", () => {
-        const result = addition(2, 3);
-        assert.equal(result, 5);
+let _telephoneIndex = new ArrayBasedTelephoneIndex()
+
+describe( "ArrayBasedTelephoneIndex unit-tests", () => {
+
+    it("searchByQuickIndexItem should return 1 result for 'A'", () => {
+        // Given ...
+
+        // When I searchByQuickIndexItem with 'A'
+        let results = _telephoneIndex.searchByQuickIndexItem( "A" )
+
+        // Then the results contain only 1 result for "Adamson, Phil"
+        _assertSearchResultsContainsNItems( results, 1 )
+        _assertSearchResultsContainsName( results, 'Adamson, Phil' )
    });
+
 });
+
+function _assertSearchResultsContainsNItems( results: SearchResults, containsNItems: number )
+{
+    assert.equal( containsNItems, results.count )
+}
+
+function _assertSearchResultsContainsName( results: SearchResults, containsName: string )
+{
+    for( let entry of results.entries)
+    {
+        if( entry.name === containsName )
+        {
+            return 
+        }
+    }
+
+    assert.fail( 'SearchResults does not contain: ' + containsName )
+}

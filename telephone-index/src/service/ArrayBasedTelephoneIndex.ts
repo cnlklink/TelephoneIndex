@@ -1,4 +1,4 @@
-import TelephoneIndex, { SearchResults } from './TelephoneIndex'
+import TelephoneIndex, { TelephoneIndexEntry, SearchResults } from './TelephoneIndex'
 
 class ArrayBasedTelephoneIndex implements TelephoneIndex
 {
@@ -12,6 +12,7 @@ class ArrayBasedTelephoneIndex implements TelephoneIndex
     }
 
     return { 
+      entries: Array<TelephoneIndexEntry>(),
       count: count 
     }
   }
