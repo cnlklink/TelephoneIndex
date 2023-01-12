@@ -4,16 +4,18 @@ class ArrayBasedTelephoneIndex implements TelephoneIndex
 {
   searchByQuickIndexItem( item: string ): SearchResults
   {
-    let count = 0
+    let entries = Array<TelephoneIndexEntry>()
 
     if( item === 'A' )
     {
-      count = 1
+      entries.push( {
+        name: "Adamson, Phil"
+      })
     }
 
     return { 
-      entries: Array<TelephoneIndexEntry>(),
-      count: count 
+      entries: entries,
+      count: entries.length 
     }
   }
 }

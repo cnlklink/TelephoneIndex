@@ -2,13 +2,15 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 class ArrayBasedTelephoneIndex {
     searchByQuickIndexItem(item) {
-        let count = 0;
+        let entries = Array();
         if (item === 'A') {
-            count = 1;
+            entries.push({
+                name: "Adamson, Phil"
+            });
         }
         return {
-            entries: Array(),
-            count: count
+            entries: entries,
+            count: entries.length
         };
     }
 }
