@@ -11,6 +11,8 @@ export type SearchResults =
 
 export default interface TelephoneIndex
 {
+  createEntryWithFirstLast( firstName: string, lastName: string ): TelephoneIndexEntry
+
   searchByQuickIndexItem( item: string ): SearchResults
 }
 

@@ -2,30 +2,26 @@ import TelephoneIndex, { TelephoneIndexEntry, SearchResults } from './TelephoneI
 
 class ArrayBasedTelephoneIndex implements TelephoneIndex
 {
+  createEntryWithFirstLast(firstName: string, lastName: string): TelephoneIndexEntry 
+  {
+    let newEntry = {
+      name: lastName + ", " + firstName 
+    }
+
+    this._entries.push( newEntry )
+
+    return newEntry
+  }
+
   searchByQuickIndexItem( item: string ): SearchResults
   {
-    let entries = Array<TelephoneIndexEntry>()
-
-    if( item === 'A' )
-    {
-      entries.push( {
-        name: "Apple, Adam"
-      })
-    }
-    else if( item === 'B' )
-    {
-      entries.push( {
-        name: "Brown, Bob"
-      },{
-        name: "Blueberry, Billy"
-      } )
-    }
-
     return { 
-      entries: entries,
-      count: entries.length 
+      entries: this._entries,
+      count: this._entries.length 
     }
   }
+
+  _entries: Array<TelephoneIndexEntry> = []
 }
 
 export default ArrayBasedTelephoneIndex 
