@@ -61,8 +61,6 @@ class ArrayBasedTelephoneIndex implements TelephoneIndex
   _entries: Array<TelephoneIndexEntry> = []
 
   _poolOfLastNames: Array<string> = [
-    'Adams', 'Anderson', 'Ashton', 'Atkins', 'Avery',
-    'Baker', 'Banks', 'Barnes', 'Bell', 'Bennett',
     'Carter', 'Castle', 'Chapman', 'Clarke', 'Cooper',
     'Davis', 'Dawson', 'Dixon', 'Douglas', 'Duncan',
     'Elliott', 'Ellis', 'Evans', 'Everett', 'Edwards',
