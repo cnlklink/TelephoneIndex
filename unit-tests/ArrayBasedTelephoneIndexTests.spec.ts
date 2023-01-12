@@ -13,6 +13,26 @@ describe( "ArrayBasedTelephoneIndex unit-tests", () => {
         _telephoneIndex.fillWithTestData()
     } )
 
+    it( "getNumberOfEntries() is initially 0", () => {
+        // Given a new ArrayBasedTelephoneIndex
+        let emptyTelephoneIndex = new ArrayBasedTelephoneIndex()
+
+        // When I call getNumberOfEntries()
+        // Then it should return 0
+        assert.equal( emptyTelephoneIndex.getNumberOfEntries(), 0 )
+    } )
+
+    it( "fillWithNRandomEntries with n = 50, should result in 50 new entries", () => {
+        // Given the telephone index is already filled with known test data
+        let startingCount = _telephoneIndex.getNumberOfEntries()
+
+        // When I can fillWithNRandomEntries( 50 )
+        _telephoneIndex.fillWithNRandomEntries( 50 )
+
+        // Then the index should have 50 new entries
+        assert.equal( _telephoneIndex.getNumberOfEntries(), startingCount + 50 )
+    } )
+
     it("searchByQuickIndexItem should return 1 result for 'A'", () => {
         // Given the index contains an entry for 'Apple, Adam'
  
