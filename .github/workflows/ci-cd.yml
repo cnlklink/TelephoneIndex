@@ -29,8 +29,8 @@ jobs:
         env:
           CI: true
         run: |
-          cd telephone-index
-          npm test
+          npm run build-unit-tests
+          npm run unit-tests
 
       - name: Building
         run: |

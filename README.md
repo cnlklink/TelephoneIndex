@@ -2,6 +2,15 @@
 
 TypeScript / React based prototype of the Fermilab Telephone Index page.  The purpose is to demonstrate that TypeScript/ React can be used to develop the User Interface for web-based console applications.
 
+## Unit tests
+
+Build and run unit tests from the top-level directory:
+
+```
+npm run build-unit-tests
+npm run unit-tests
+```
+
 ## Running
 
 Run with `npm start`:
