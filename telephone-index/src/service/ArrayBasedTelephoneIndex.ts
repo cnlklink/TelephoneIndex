@@ -15,9 +15,9 @@ class ArrayBasedTelephoneIndex implements TelephoneIndex
 
   searchByQuickIndexItem( item: string ): SearchResults
   {
-    let regExp = new RegExp( `^[${item}]`, "i" )
+    let filterByFirstLetterInLastName = new RegExp( `^[${item}]`, "i" )
     let resultEntries = this._entries.filter( ( entry: TelephoneIndexEntry ) => { 
-      return entry.name.match( regExp )
+      return entry.name.match( filterByFirstLetterInLastName )
     } )
 
     return { 
