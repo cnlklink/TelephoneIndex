@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "unit-tests": "mocha"
+    "build-unit-tests": "tsc -p unit-tests",
+    "unit-tests": "mocha unit-tests"
   },
   "keywords": [],
   "author": "",
