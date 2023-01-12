@@ -10,7 +10,7 @@ describe( "ArrayBasedTelephoneIndex unit-tests", () => {
     beforeEach( () => {
         _telephoneIndex = new ArrayBasedTelephoneIndex()
 
-        _fillTelephoneIndexWithTestData( _telephoneIndex )
+        _telephoneIndex.fillWithTestData()
     } )
 
     it("searchByQuickIndexItem should return 1 result for 'A'", () => {
@@ -53,11 +53,4 @@ function _assertSearchResultsContainsName( results: SearchResults, containsName:
     }
 
     assert.fail( 'SearchResults does not contain: ' + containsName )
-}
-
-function _fillTelephoneIndexWithTestData( index: ArrayBasedTelephoneIndex )
-{
-    index.createEntryWithFirstLast( "Adam", "Apple" )
-    index.createEntryWithFirstLast( "Bob", "Brown" )
-    index.createEntryWithFirstLast( "Billy", "Blueberry" )
 }

@@ -7,6 +7,7 @@ import ArrayBasedTelephoneIndex from './service/ArrayBasedTelephoneIndex'
 import './App.css';
 
 let _telephoneIndex = new ArrayBasedTelephoneIndex()
+_telephoneIndex.fillWithTestData()
 
 let _numberOfSearchResults: number
 let _setNumberOfSearchResults: ( numberOfSearchResults: number ) => void 

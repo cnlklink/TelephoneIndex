@@ -13,6 +13,13 @@ class ArrayBasedTelephoneIndex implements TelephoneIndex
     return newEntry
   }
 
+  fillWithTestData(): void
+  {
+    this.createEntryWithFirstLast( "Adam", "Apple" )
+    this.createEntryWithFirstLast( "Bob", "Brown" )
+    this.createEntryWithFirstLast( "Billy", "Blueberry" )
+  }
+
   searchByQuickIndexItem( item: string ): SearchResults
   {
     let filterByFirstLetterInLastName = new RegExp( `^[${item}]`, "i" )

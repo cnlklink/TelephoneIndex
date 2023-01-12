@@ -9,7 +9,7 @@ describe("ArrayBasedTelephoneIndex unit-tests", () => {
     let _telephoneIndex;
     beforeEach(() => {
         _telephoneIndex = new ArrayBasedTelephoneIndex_1.default();
-        _fillTelephoneIndexWithTestData(_telephoneIndex);
+        _telephoneIndex.fillWithTestData();
     });
     it("searchByQuickIndexItem should return 1 result for 'A'", () => {
         // Given the index contains an entry for 'Apple, Adam'
@@ -39,9 +39,4 @@ function _assertSearchResultsContainsName(results, containsName) {
         }
     }
     chai_1.assert.fail('SearchResults does not contain: ' + containsName);
-}
-function _fillTelephoneIndexWithTestData(index) {
-    index.createEntryWithFirstLast("Adam", "Apple");
-    index.createEntryWithFirstLast("Bob", "Brown");
-    index.createEntryWithFirstLast("Billy", "Blueberry");
 }
