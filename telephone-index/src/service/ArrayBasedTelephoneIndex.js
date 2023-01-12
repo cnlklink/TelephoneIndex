@@ -12,9 +12,13 @@ class ArrayBasedTelephoneIndex {
         return newEntry;
     }
     searchByQuickIndexItem(item) {
+        let regExp = new RegExp(`^[${item}]`, "i");
+        let resultEntries = this._entries.filter((entry) => {
+            return entry.name.match(regExp);
+        });
         return {
-            entries: this._entries,
-            count: this._entries.length
+            entries: resultEntries,
+            count: resultEntries.length
         };
     }
 }

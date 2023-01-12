@@ -9,10 +9,10 @@ describe("ArrayBasedTelephoneIndex unit-tests", () => {
     let _telephoneIndex;
     beforeEach(() => {
         _telephoneIndex = new ArrayBasedTelephoneIndex_1.default();
+        _fillTelephoneIndexWithTestData(_telephoneIndex);
     });
     it("searchByQuickIndexItem should return 1 result for 'A'", () => {
         // Given the index contains an entry for 'Apple, Adam'
-        _telephoneIndex.createEntryWithFirstLast("Adam", "Apple");
         // When I searchByQuickIndexItem with 'A'
         let results = _telephoneIndex.searchByQuickIndexItem("A");
         // Then the results contain only 1 result for "Adamson, Phil"
@@ -20,9 +20,7 @@ describe("ArrayBasedTelephoneIndex unit-tests", () => {
         _assertSearchResultsContainsName(results, 'Apple, Adam');
     });
     it("searchByQuickIndexItem should return 2 results for 'B'", () => {
-        // Given the index contains entries for two people...
-        _telephoneIndex.createEntryWithFirstLast("Bob", "Brown");
-        _telephoneIndex.createEntryWithFirstLast("Billy", "Blueberry");
+        // Given the index contains entries for two people with a last name that starts with 'B'
         // When I searchByQuickIndexItem with 'B'
         let results = _telephoneIndex.searchByQuickIndexItem("B");
         // Then the results contain 2 items...
@@ -41,4 +39,9 @@ function _assertSearchResultsContainsName(results, containsName) {
         }
     }
     chai_1.assert.fail('SearchResults does not contain: ' + containsName);
+}
+function _fillTelephoneIndexWithTestData(index) {
+    index.createEntryWithFirstLast("Adam", "Apple");
+    index.createEntryWithFirstLast("Bob", "Brown");
+    index.createEntryWithFirstLast("Billy", "Blueberry");
 }

@@ -2,7 +2,7 @@ import TelephoneIndex, { TelephoneIndexEntry, SearchResults } from './TelephoneI
 
 class ArrayBasedTelephoneIndex implements TelephoneIndex
 {
-  createEntryWithFirstLast(firstName: string, lastName: string): TelephoneIndexEntry 
+  createEntryWithFirstLast( firstName: string, lastName: string ): TelephoneIndexEntry 
   {
     let newEntry = {
       name: lastName + ", " + firstName 
@@ -15,9 +15,14 @@ class ArrayBasedTelephoneIndex implements TelephoneIndex
 
   searchByQuickIndexItem( item: string ): SearchResults
   {
+    let regExp = new RegExp( `^[${item}]`, "i" )
+    let resultEntries = this._entries.filter( ( entry: TelephoneIndexEntry ) => { 
+      return entry.name.match( regExp )
+    } )
+
     return { 
-      entries: this._entries,
-      count: this._entries.length 
+      entries: resultEntries,
+      count: resultEntries.length 
     }
   }
 
