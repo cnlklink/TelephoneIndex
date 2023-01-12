@@ -13,7 +13,10 @@ class ArrayBasedTelephoneIndex implements TelephoneIndex
   {
     for( let i = 0; i < n; i++ )
     {
-      this.createEntryWithFirstLast( this._pickARandomFirstName(), this._pickARandomLastName() )
+      this.createEntryWithFirstLast( 
+        this._pickARandomNameFrom( this._poolOfFirstNames ), 
+        this._pickARandomNameFrom( this._poolOfLastNames )
+      )
     }
   }
   
@@ -28,16 +31,10 @@ class ArrayBasedTelephoneIndex implements TelephoneIndex
     return newEntry
   }
 
-  _pickARandomLastName(): string 
+  _pickARandomNameFrom( from: Array<string> ): string 
   {
-    let randomIndex = Math.floor(Math.random() * this._poolOfLastNames.length)
-    return this._poolOfLastNames[randomIndex]
-  }
-
-  _pickARandomFirstName(): string 
-  {
-    let randomIndex = Math.floor(Math.random() * this._poolOfFirstNames.length)
-    return this._poolOfFirstNames[randomIndex]
+    let randomIndex = Math.floor(Math.random() * from.length)
+    return from[randomIndex]
   }
 
   getNumberOfEntries(): number 
