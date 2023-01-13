@@ -70,7 +70,15 @@ async function assertThereAreNSearchResultsDisplayedOn( n: number, on: Page )
 
 async function assertSearchResultsBeginWithLetterOn( letter: string, on: Page )
 {
+  const searchResultDivs = await on.$$( '.search-result' )
+  for( const resultDiv of searchResultDivs )
+  {
+    const fullName = await (await resultDiv.getProperty('textContent')).jsonValue();
 
+    const beginsWithLetter = new RegExp( `^[${letter}]`, "i" )
+
+    expect( fullName ).toMatch(beginsWithLetter)
+  }
 }
 
 async function assertNameAppearsInSearchResultsOn( name: string, on: Page )
