@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { TelephoneIndexEntry } from '../../service/TelephoneIndex';
 
 type SearchResultProps = {

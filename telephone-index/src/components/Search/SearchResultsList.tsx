@@ -1,6 +1,5 @@
 import React from 'react';
 import SearchResult from './SearchResult'
-import { resourceLimits } from 'worker_threads';
 import { SearchResults } from '../../service/TelephoneIndex';
 
 type SearchResultsListProps = {
