@@ -1,4 +1,5 @@
 import React from 'react';
+import SearchResult from './SearchResult'
 import { resourceLimits } from 'worker_threads';
 import { SearchResults } from '../../service/TelephoneIndex';
 
@@ -13,9 +14,9 @@ function SearchResultsList( props: SearchResultsListProps )
   return (
     <div id="search-results">
         <div id="search-results-list">
-          { 
+          {
               results.map( (result, _) => {
-                  return <div className = "search-result">{result.name}</div>
+                  return <SearchResult entry={result}/>
               } )
           }
         </div>
