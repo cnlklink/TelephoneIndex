@@ -83,6 +83,45 @@ async function assertSearchResultsBeginWithLetterOn( letter: string, on: Page )
 
 async function assertNameAppearsInSearchResultsOn( name: string, on: Page )
 {
-  const locator = on.locator( "#search-results-list" )
-  await expect( locator ).toHaveText( name )
+  let found = false
+  const searchResultDivs = await on.$$( '.search-result' )
+  for( const resultDiv of searchResultDivs )
+  {
+    const thisResultsFullName = await (await resultDiv.getProperty('textContent')).jsonValue();
+    if( thisResultsFullName === name )
+    {
+      found = true
+      break
+    }
+  }
+
+  expect( found ).toBeTruthy()
 }
+
+test( 'Click on B in Quick Index, 2 results are displayed', async( {page} ) => {
+
+  // Given I have navigated to the telephone index home page
+  await navigatePageToHome( page )
+
+  // When I click on the 'B' item in the quick index
+  await clickQuickIndexItemOn( 'B', page )
+
+  // Then 2 results are displayed
+  await assertThereAreNSearchResultsDisplayedOn( 2, page )
+  await assertSearchResultsBeginWithLetterOn( 'B', page )
+  await assertNameAppearsInSearchResultsOn( 'Brown, Bob', page )
+  await assertNameAppearsInSearchResultsOn( 'Blueberry, Billy', page )
+})
+
+test( 'Click on C in Quick Index after A, 0 results are displayed', async( {page} ) => { 
+  // Given the user has already clicked on quick index 'A' and results are being displayed
+  await navigatePageToHome( page )
+  await clickQuickIndexItemOn( 'A', page )
+  await assertThereAreNSearchResultsDisplayedOn( 1, page ) 
+
+  // When I click on the 'C' item in the quick index
+  await clickQuickIndexItemOn( 'C', page )
+
+  // Then no results are displayed
+  await assertThereAreNoResultsDisplayedOn( page )
+})
