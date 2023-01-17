@@ -9,8 +9,8 @@ import './App.css';
 let _telephoneIndex = new ArrayBasedTelephoneIndex()
 _telephoneIndex.fillWithTestData()
 
-let _numberOfSearchResults: number
-let _setNumberOfSearchResults: ( numberOfSearchResults: number ) => void 
+let _searchResults: SearchResults
+let _setSearchResults: ( searchResults: SearchResults ) => void 
 
 function App() 
 {
@@ -24,7 +24,7 @@ function App()
 
       <QuickIndex onItemSelected= { _quickIndexItemSelectedHandler } />
 
-      <Search numberOfSearchResults= { _numberOfSearchResults } />
+      <Search searchResults= { _searchResults } />
     </div>
   );
 }
@@ -38,7 +38,10 @@ function _setTitle()
 
 function _initializeReactState()
 {
-  [_numberOfSearchResults, _setNumberOfSearchResults] = useState<number>( 0 )
+  [_searchResults, _setSearchResults] = useState<SearchResults>( { 
+    entries: [], 
+    count: 0 
+  } )
 }
 
 function _quickIndexItemSelectedHandler( item: string )
@@ -48,7 +51,7 @@ function _quickIndexItemSelectedHandler( item: string )
 
 function _publishSearchResults( searchResults: SearchResults )
 {
-  _setNumberOfSearchResults( searchResults.count )
+  _setSearchResults( searchResults )
 }
 
 export default App;

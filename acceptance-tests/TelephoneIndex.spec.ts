@@ -53,7 +53,7 @@ test( 'Click on A in Quick Index, 1 result is displayed', async( {page} ) => {
   // Then 1 result is displayed
   await assertThereAreNSearchResultsDisplayedOn( 1, page )
   await assertSearchResultsBeginWithLetterOn( 'A', page )
-  await assertNameAppearsInSearchResultsOn( 'Adams, Apple', page )
+  await assertNameAppearsInSearchResultsOn( 'Apple, Adam', page )
 })
 
 async function clickQuickIndexItemOn( item: string, on: Page )
@@ -77,7 +77,7 @@ async function assertSearchResultsBeginWithLetterOn( letter: string, on: Page )
 
     const beginsWithLetter = new RegExp( `^[${letter}]`, "i" )
 
-    expect( fullName ).toMatch(beginsWithLetter)
+    expect( fullName ).toMatch( beginsWithLetter )
   }
 }
 

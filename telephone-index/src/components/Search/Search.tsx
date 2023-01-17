@@ -1,10 +1,12 @@
 import React from 'react';
 
+import { SearchResults } from '../../service/TelephoneIndex'
+
 import SearchBar from './SearchBar'
-import SearchResults from './SearchResults'
+import SearchResultsList from './SearchResultsList'
 
 type SearchProps = {
-    numberOfSearchResults: number
+    searchResults: SearchResults
 }
 
 function Search( props: SearchProps ) 
@@ -12,7 +14,7 @@ function Search( props: SearchProps )
     return (
         <div className='search'>
             <SearchBar/>
-            <SearchResults numberOfResults={props.numberOfSearchResults}/>
+            <SearchResultsList searchResults={props.searchResults}/>
         </div>
     )
 }
