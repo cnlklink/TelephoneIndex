@@ -3,7 +3,7 @@ name: Continuois Integration / Continuous Delivery Workflow for TelephoneIndex
 on: [push]
 
 jobs:
-  Setup-Build-Test:
+  Setup-Build-Test-Dockerize-Push:
     runs-on: ubuntu-latest
     timeout-minutes: 8
 
@@ -47,8 +47,19 @@ jobs:
         run: |
           npx playwright test
 
-      - name: Building container image
+      - name: Logging in to Docker Hub
+        uses: docker/login-action
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+
+      - name: Building and pushing container image
         run: |
           cd telephone-index
           docker build -t cnlklink/react-telephone-index .
+
+      - name: Pushing to Dockerhub
+        run: |
+          docker push
+
 
