@@ -35,6 +35,12 @@ npx playwright test
 
 (Note: you could also install the Playwright extension in VS Code.)
 
+## Docker & Kubernetes 
+
+There is a `Dockerfile` in telephone-index/ that will create a deployable container image for the Telephone Index application.  This image can be deployed into the adkube K8 cluster using the configuration in `K8/`.
+
 ## CI/CD
 
 GitHub Actions is used to execute the CI/CD pipeline.  Any commit to `main` will trigger a pipeline execution.  To edit the pipeline, see `.github/workflows/ci-cd.yml`.  To see the status of the pipeline, click the `Actions` tab from the GitHub page.
+
+A sucessful run on the CI/CD pipeline will push a Docker image to Dockerhub as `cnlklink/react-telephone-index:latest`.

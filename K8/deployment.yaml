@@ -1,0 +1,17 @@
+metadata:
+  name: react-telephone-index
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: react-telephone-index
+  template:
+    metadata:
+      labels:
+        app: react-telephone-index
+    spec:
+      containers:
+      - name: react-telephone-index
+        image: cnlklink/react-telephone-index
+        ports:
+        - containerPort: 80
