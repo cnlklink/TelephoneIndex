@@ -60,6 +60,4 @@ jobs:
 
       - name: Pushing to Dockerhub
         run: |
-          docker push
-
-
+          docker push cnlklink/react-telephone-index:latest
