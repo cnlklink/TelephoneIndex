@@ -53,7 +53,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
-      - name: Building and pushing container image
+      - name: Building container image
         run: |
           cd telephone-index
           docker build -t cnlklink/react-telephone-index .
