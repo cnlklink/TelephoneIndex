@@ -47,3 +47,8 @@ jobs:
         run: |
           npx playwright test
 
+      - name: Building container image
+        run: |
+          cd telephone-index
+          docker build -t cnlklink/react-telephone-index .
+
