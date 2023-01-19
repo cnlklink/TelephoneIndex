@@ -50,7 +50,7 @@ jobs:
 
       - name: Starting application container
         run: |
-          docker run -d -p 3000:3000 cnlklink/react-telephone-index
+          docker run -d -p 3000:80 cnlklink/react-telephone-index
     
       - name: Acceptance testing
         run: |
