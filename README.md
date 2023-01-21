@@ -2,6 +2,21 @@
 
 TypeScript / React based prototype of the Fermilab Telephone Index page.  The purpose is to demonstrate that TypeScript/ React can be used to develop the User Interface for web-based console applications.
 
+## Environment
+
+To setup your environment, clone this repository and execute the following to install dependencies:
+
+```
+$ npm install
+...
+$ npx playwright install --with-deps
+...
+$ cd telephone-index
+$ npm install
+```
+
+Optional: you will need to install the Playwright extension to be able to execute tests from VS Code.
+
 ## Unit tests
 
 Build and run unit tests from the top-level directory:
