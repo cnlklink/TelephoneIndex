@@ -59,3 +59,36 @@ There is a `Dockerfile` in telephone-index/ that will create a deployable contai
 GitHub Actions is used to execute the CI/CD pipeline.  Any commit to `main` will trigger a pipeline execution.  To edit the pipeline, see `.github/workflows/ci-cd.yml`.  To see the status of the pipeline, click the `Actions` tab from the GitHub page.
 
 A sucessful run on the CI/CD pipeline will push a Docker image to Dockerhub as `cnlklink/react-telephone-index:latest`.
+
+## Deployment
+
+To deploy the container into `adkube` -
+
+* Login to `clx50` or any other machine inside the firewall with docker/podman
+* Pull the image from `docker.io`:
+
+```
+$ docker pull cnlklink/react-telephone-index:latest
+```
+
+* Re-tag the image for deploying to `adregistry.fnal.gov`:
+
+```
+$ podman image tag docker.io/cnlklink/react-telephone-index:latest adregistry.fnal.gov/telephone-index/react-telephone-index:latest
+```
+
+* Push the image to `adregistry.fnal.gov`:
+
+```
+$ podman image push adregistry.fnal.gov/telephone-index/react-telephone-index:latest
+```
+
+* Login to adkube
+* Remember to pull from TelephoneIndex if necessary!
+* Deploy:
+
+```
+$ cd K8/
+$ kubectl apply -f deployment.yaml
+$ kubectl apply -f load-balancer.yml
+```
