@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: react-telephone-index
-        image: cnlklink/react-telephone-index
+        image: adregistry.fnal.gov/telephone-index/react-telephone-index:latest
         ports:
         - containerPort: 80
