@@ -50,7 +50,10 @@ test( 'Click on A in Quick Index, 1 result is displayed', async( {page} ) => {
   // When I click on the 'A' item in the quick index
   await clickQuickIndexItemOn( 'A', page )
 
-  // Then 1 result is displayed
+  // Then the 'A' is highlighted
+  await assertQuickIndexItemIsHighlightedOn( 'A', true , page )
+
+  // ... and 1 result is displayed
   await assertThereAreNSearchResultsDisplayedOn( 1, page )
   await assertSearchResultsBeginWithLetterOn( 'A', page )
   await assertNameAppearsInSearchResultsOn( 'Apple, Adam', page )
@@ -60,6 +63,19 @@ async function clickQuickIndexItemOn( item: string, on: Page )
 {
   const itemElement = await on.$( '#quick-index-item-' + item )
   itemElement?.click()
+}
+
+async function assertQuickIndexItemIsHighlightedOn( quickIndexItem: string, isHighlighted: boolean, on: Page )
+{
+  const locator = on.locator( '#quickindex-item-' + quickIndexItem )
+  if( isHighlighted )
+  {
+    await expect( locator ).toHaveClass( 'quickindex-item-selected' )
+  }
+  else 
+  {
+    await expect( locator ).toNotHaveClass( 'quickindex-item-selected' )
+  }
 }
 
 async function assertThereAreNSearchResultsDisplayedOn( n: number, on: Page )
