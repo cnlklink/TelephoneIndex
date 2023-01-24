@@ -44,9 +44,10 @@ function _initializeReactState()
   [_searchResults, _setSearchResults] = useState<SearchResults>( { 
     entries: [], 
     count: 0 
-  } )
+  } );
 
-  [_selectedQuickIndexItem, _setSelectedQuickIndexItem] = useState<string>( '' )
+  
+  [_selectedQuickIndexItem, _setSelectedQuickIndexItem] = useState<string>( '' );
 }
 
 function _quickIndexItemSelectedHandler( item: string )

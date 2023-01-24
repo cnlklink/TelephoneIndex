@@ -17,8 +17,8 @@ function QuickIndexItem( props: QuickIndexItemProps )
 
     const id = 'quick-index-item-' + props.text
 
-    const selectionClass = props.isSelected === true ? "quick-index-item-selected" : ""
-    const classes = `quick-index-item ${selectionClass}`
+    const selectionClass = props.isSelected === true ? " quick-index-item-selected" : ""
+    const classes = `quick-index-item${selectionClass}`
 
     return (
         <div id={ id } className={ classes } onClick={ clickHandler }>

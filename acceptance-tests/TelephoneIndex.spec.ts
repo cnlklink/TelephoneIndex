@@ -74,7 +74,7 @@ async function assertQuickIndexItemIsHighlightedOn( quickIndexItem: string, isHi
   }
   else 
   {
-    await expect( locator ).toNotHaveClass( 'quick-index-item-selected' )
+    await expect( locator ).toHaveClass( 'quick-index-item' )
   }
 }
 
