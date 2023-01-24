@@ -16,8 +16,10 @@ function QuickIndexItem( props: QuickIndexItemProps )
 
     const id = 'quick-index-item-' + props.text
 
+    const classes = `quick-index-item quick-index-item-selected`
+
     return (
-        <div id={id} className = 'quick-index-item' onClick = { clickHandler }>
+        <div id={ id } className={ classes } onClick={ clickHandler }>
             { props.text }
         </div>
     );

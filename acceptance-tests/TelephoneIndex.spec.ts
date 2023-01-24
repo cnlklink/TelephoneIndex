@@ -67,14 +67,14 @@ async function clickQuickIndexItemOn( item: string, on: Page )
 
 async function assertQuickIndexItemIsHighlightedOn( quickIndexItem: string, isHighlighted: boolean, on: Page )
 {
-  const locator = on.locator( '#quickindex-item-' + quickIndexItem )
+  const locator = on.locator( '#quick-index-item-' + quickIndexItem )
   if( isHighlighted )
   {
-    await expect( locator ).toHaveClass( 'quickindex-item-selected' )
+    await expect( locator ).toHaveClass( 'quick-index-item quick-index-item-selected' )
   }
   else 
   {
-    await expect( locator ).toNotHaveClass( 'quickindex-item-selected' )
+    await expect( locator ).toNotHaveClass( 'quick-index-item-selected' )
   }
 }
 
@@ -134,10 +134,15 @@ test( 'Click on C in Quick Index after A, 0 results are displayed', async( {page
   await navigatePageToHome( page )
   await clickQuickIndexItemOn( 'A', page )
   await assertThereAreNSearchResultsDisplayedOn( 1, page ) 
+  await assertQuickIndexItemIsHighlightedOn( 'A', true, page )
 
   // When I click on the 'C' item in the quick index
   await clickQuickIndexItemOn( 'C', page )
 
   // Then no results are displayed
   await assertThereAreNoResultsDisplayedOn( page )
+
+  // ... and only 'C' is selected
+  await assertQuickIndexItemIsHighlightedOn( 'A', false, page )
+  await assertQuickIndexItemIsHighlightedOn( 'C', true, page )
 })
