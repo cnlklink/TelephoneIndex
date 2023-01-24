@@ -12,6 +12,9 @@ _telephoneIndex.fillWithTestData()
 let _searchResults: SearchResults
 let _setSearchResults: ( searchResults: SearchResults ) => void 
 
+let _selectedQuickIndexItem: string 
+let _setSelectedQuickIndexItem: ( selectedQuickIndexItem: string ) => void
+
 function App() 
 {
   _setTitle()
@@ -22,7 +25,7 @@ function App()
     <div className="Telephone-Index-App">
       <Header/>
 
-      <QuickIndex onItemSelected= { _quickIndexItemSelectedHandler } />
+      <QuickIndex selectedItem = { _selectedQuickIndexItem } onItemSelected= { _quickIndexItemSelectedHandler } />
 
       <Search searchResults= { _searchResults } />
     </div>
@@ -42,11 +45,14 @@ function _initializeReactState()
     entries: [], 
     count: 0 
   } )
+
+  [_selectedQuickIndexItem, _setSelectedQuickIndexItem] = useState<string>( '' )
 }
 
 function _quickIndexItemSelectedHandler( item: string )
 {
   _publishSearchResults( _telephoneIndex.searchByQuickIndexItem( item ) )
+  _setSelectedQuickIndexItem( item )
 }
 
 function _publishSearchResults( searchResults: SearchResults )
