@@ -8,7 +8,12 @@ test( 'Navigate to the home page, telephone index is displayed with no results',
   // Then the telephone index page is displayed
   await assertSearchBarIsDisplayedOn( page )
   await assertTelephoneIndexIsDisplayedOn( page )
+
+  // ... and there are no search results
   await assertThereAreNoResultsDisplayedOn( page )
+
+  // ... and nothing is selected in the quick index
+  await assertThereAreNoSelectedQuickIndexItemsOn( page )
 })
 
 async function navigatePageToHome( page: Page )
@@ -40,6 +45,12 @@ async function assertThereAreNoResultsDisplayedOn( on: Page )
   // I should see a "No results found" message
   const locator = on.locator( '#search-results-where' )
   await expect( locator ).toHaveText( /no results found/i )
+}
+
+async function assertThereAreNoSelectedQuickIndexItemsOn( on: Page ) 
+{
+  const elements = await on.$$('.quick-index-item-selected');
+  expect( elements ).toBeNull
 }
 
 test( 'Click on A in Quick Index, 1 result is displayed', async( {page} ) => {
