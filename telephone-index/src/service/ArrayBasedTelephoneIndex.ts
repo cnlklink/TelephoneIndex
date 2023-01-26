@@ -42,6 +42,11 @@ class ArrayBasedTelephoneIndex implements TelephoneIndex
     return this._entries.length
   }
 
+  searchByCriteria( criteria: string ): SearchResults 
+  {
+    return { entries: [], count: 0 }
+  }
+
   searchByQuickIndexItem( item: string ): SearchResults
   {
     let filterByFirstLetterInLastName = new RegExp( `^[${item}]`, "i" )

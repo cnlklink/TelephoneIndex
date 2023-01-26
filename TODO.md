@@ -15,10 +15,10 @@
   * ~~Acceptance test: On load, no item is highlight in the quick index~~
   * ~~Acceptance test: Click A, A is highlighted in the quick index~~
   * ~~Acceptance test: Click A then B, B is highlight and A is not~~
-  * Acceptance test: Click A in quick index then enter an empty search, no results found and quick index item is not selected
+  * ~~Acceptance test: Click A in quick index then enter an empty search, no results found and quick index item is not selected~~
   * ~~Acceptance test: Click C, no results are shown but C is selected~~
 * Search:
-  * Acceptance test: Empty search, no results found
+  * ~~Acceptance test: Empty search, no results found~~
   * Acceptance test: type 1 character, see multiple results starting w/ that character
   * Acceptance test: type first name, see multiple results w/ that first name
   * Acceptance test: type full name, see one result

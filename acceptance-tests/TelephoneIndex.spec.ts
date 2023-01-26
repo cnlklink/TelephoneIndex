@@ -177,7 +177,7 @@ test( 'Empty search, 0 results are displayed and quick index is unselected', asy
   await assertThereAreNoSelectedQuickIndexItemsOn( page )
 })
 
-async function searchForOn( searchInput: string, on: page )
+async function searchForOn( searchInput: string, on: Page )
 {
   await on.type( '#search-criteria', searchInput )
 }

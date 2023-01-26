@@ -13,6 +13,8 @@ export default interface TelephoneIndex
 {
   createEntryWithFirstLast( firstName: string, lastName: string ): TelephoneIndexEntry
 
+  searchByCriteria( criteria: string ): SearchResults
+
   searchByQuickIndexItem( item: string ): SearchResults
 }
 

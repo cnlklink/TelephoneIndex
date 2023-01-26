@@ -58,7 +58,7 @@ function _quickIndexItemSelectedHandler( item: string )
 
 function _searchHandler( criteria: string )
 {
-  _publishSearchResults( { entries: [], count: 0 } )
+  _publishSearchResults( _telephoneIndex.searchByCriteria( criteria ) )
 }
 
 function _publishSearchResults( searchResults: SearchResults )
