@@ -33,7 +33,7 @@ describe( "ArrayBasedTelephoneIndex unit-tests", () => {
         assert.equal( _telephoneIndex.getNumberOfEntries(), startingCount + 50 )
     } )
 
-    it("searchByQuickIndexItem should return 1 result for 'A'", () => {
+    it("searchByQuickIndexItem( 'A' ) should return 1 result", () => {
         // Given the index contains an entry for 'Apple, Adam'
  
         // When I searchByQuickIndexItem with 'A'
@@ -44,7 +44,7 @@ describe( "ArrayBasedTelephoneIndex unit-tests", () => {
         _assertSearchResultsContainsName( results, 'Apple, Adam' )
     } )
 
-    it( "searchByQuickIndexItem should return 2 results for 'B'", () => {
+    it( "searchByQuickIndexItem( 'B' ) should return 2 results", () => {
         // Given the index contains entries for two people with a last name that starts with 'B'
 
         // When I searchByQuickIndexItem with 'B'
@@ -55,6 +55,17 @@ describe( "ArrayBasedTelephoneIndex unit-tests", () => {
         _assertSearchResultsContainsName( results, 'Brown, Bob' )
         _assertSearchResultsContainsName( results, 'Blueberry, Billy' )
     } )
+
+    it( "searchByCriteria( '' ) should return 0 results", () => { 
+        // Given the index is loaded with random test data
+        _telephoneIndex.fillWithNRandomEntries( 100 )
+
+        // When I searchByCriteria for ''
+        let results = _telephoneIndex.searchByCriteria( '' )
+
+        // Then there results contains no items
+        _assertSearchResultsContainsNItems( results, 0 )
+    })
 });
 
 function _assertSearchResultsContainsNItems( results: SearchResults, containsNItems: number )
