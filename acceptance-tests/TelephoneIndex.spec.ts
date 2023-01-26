@@ -157,3 +157,27 @@ test( 'Click on C in Quick Index after A, 0 results are displayed', async( {page
   await assertQuickIndexItemIsHighlightedOn( 'A', false, page )
   await assertQuickIndexItemIsHighlightedOn( 'C', true, page )
 })
+
+test( 'Empty search, 0 results are displayed and quick index is unselected', async( {page} ) => {
+  // Given I am on the home page
+  await navigatePageToHome( page )
+
+  // ... and I have selected 'A' from the quick index (which displays 1 telephone entry)
+  await clickQuickIndexItemOn( 'A', page )
+  await assertThereAreNSearchResultsDisplayedOn( 1, page )
+  await assertQuickIndexItemIsHighlightedOn( 'A', true, page )
+
+  // When I search for nothing
+  await searchForOn( "", page )
+
+  // Then there are no results displayed
+  await assertThereAreNoResultsDisplayedOn( page )
+
+  // ... and no item in the quick index is selected
+  await assertThereAreNoSelectedQuickIndexItemsOn( page )
+})
+
+async function searchForOn( searchInput: string, on: page )
+{
+  await on.type( '#search-criteria', searchInput )
+}

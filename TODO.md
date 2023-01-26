@@ -14,7 +14,7 @@
   * ~~Acceptance test: Click C, receive no results~~
   * ~~Acceptance test: On load, no item is highlight in the quick index~~
   * ~~Acceptance test: Click A, A is highlighted in the quick index~~
-  * Acceptance test: Click A then B, B is highlight and A is not
+  * ~~Acceptance test: Click A then B, B is highlight and A is not~~
   * Acceptance test: Click A in quick index then enter an empty search, no results found and quick index item is not selected
   * ~~Acceptance test: Click C, no results are shown but C is selected~~
 * Search:

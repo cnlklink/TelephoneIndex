@@ -25,7 +25,7 @@ function SearchBar()
                 <div className="search-bar__controls">
                     <div className="search-bar__control">
                         <label> Search: </label>
-                        <input name="search-criteria" type="text" onChange={searchCriteriaChangedHandler}/>
+                        <input id="search-criteria" name="search-criteria" type="text" onChange={searchCriteriaChangedHandler}/>
                     </div>
                 </div>
             </form>
