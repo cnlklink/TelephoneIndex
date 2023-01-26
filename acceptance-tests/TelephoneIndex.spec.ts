@@ -168,7 +168,7 @@ test( 'Empty search, 0 results are displayed and quick index is unselected', asy
   await assertQuickIndexItemIsHighlightedOn( 'A', true, page )
 
   // When I search for nothing
-  await searchForOn( "", page )
+  await searchForOn( " ", page )
 
   // Then there are no results displayed
   await assertThereAreNoResultsDisplayedOn( page )

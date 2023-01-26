@@ -27,7 +27,7 @@ function App()
 
       <QuickIndex selectedItem = { _selectedQuickIndexItem } onItemSelected= { _quickIndexItemSelectedHandler } />
 
-      <Search searchResults= { _searchResults } />
+      <Search searchResults= { _searchResults } onSearch={ _searchHandler } />
     </div>
   );
 }
@@ -54,6 +54,11 @@ function _quickIndexItemSelectedHandler( item: string )
 {
   _publishSearchResults( _telephoneIndex.searchByQuickIndexItem( item ) )
   _setSelectedQuickIndexItem( item )
+}
+
+function _searchHandler( criteria: string )
+{
+  _publishSearchResults( { entries: [], count: 0 } )
 }
 
 function _publishSearchResults( searchResults: SearchResults )

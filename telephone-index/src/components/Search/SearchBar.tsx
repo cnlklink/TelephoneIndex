@@ -1,22 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-type SearchForm = {
-    enteredCriteria: string
+type SearchBarProps = {
+    onCriteriaChanged?: ( criteria: string ) => void
 }
 
-function SearchBar() 
+function SearchBar( props: SearchBarProps ) 
 {
-    const [, setSearchFormValues] = useState<SearchForm>( { 
-        enteredCriteria: ''
-    } )
-
     const searchCriteriaChangedHandler = ( event: React.ChangeEvent<HTMLInputElement> ) => {
-        setSearchFormValues( (prevState) => {
-            return { 
-                ...prevState,
-                enteredCriteria: event.target.value
-            }
-        } )
+        if( props.onCriteriaChanged )
+        {
+            props.onCriteriaChanged( event.target.value )
+        }
     }
 
     return (
@@ -25,7 +19,7 @@ function SearchBar()
                 <div className="search-bar__controls">
                     <div className="search-bar__control">
                         <label> Search: </label>
-                        <input id="search-criteria" name="search-criteria" type="text" onChange={searchCriteriaChangedHandler}/>
+                        <input id="search-criteria" name="search-criteria" type="text" onChange={ searchCriteriaChangedHandler }/>
                     </div>
                 </div>
             </form>
