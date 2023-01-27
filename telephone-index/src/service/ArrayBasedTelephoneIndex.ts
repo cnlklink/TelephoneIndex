@@ -46,27 +46,33 @@ class ArrayBasedTelephoneIndex implements TelephoneIndex
   {
     let filterBySearchCriteria = new RegExp( `[${criteria}]`, "i" )
 
-    let resultEntries = this._entries.filter( (entry: TelephoneIndexEntry ) => { 
-      return entry.name.match( filterBySearchCriteria )
-    } )
+    return this._arrayOfEntriesToSearchResults( 
+      this._filterEntriesWithRegExp( filterBySearchCriteria ) 
+    )
+  }
 
+  _filterEntriesWithRegExp( regex: RegExp ): Array<TelephoneIndexEntry>
+  {
+    return this._entries.filter( (entry: TelephoneIndexEntry ) => { 
+      return entry.name.match( regex )
+    } )
+  }
+
+  _arrayOfEntriesToSearchResults( entries: Array<TelephoneIndexEntry> ): SearchResults 
+  {
     return {
-      entries: resultEntries,
-      count: resultEntries.length
+      entries: entries,
+      count: entries.length
     }
   }
 
   searchByQuickIndexItem( item: string ): SearchResults
   {
     let filterByFirstLetterInLastName = new RegExp( `^[${item}]`, "i" )
-    let resultEntries = this._entries.filter( ( entry: TelephoneIndexEntry ) => { 
-      return entry.name.match( filterByFirstLetterInLastName )
-    } )
 
-    return { 
-      entries: resultEntries,
-      count: resultEntries.length 
-    }
+    return this._arrayOfEntriesToSearchResults( 
+      this._filterEntriesWithRegExp( filterByFirstLetterInLastName ) 
+    )
   }
 
   _entries: Array<TelephoneIndexEntry> = []
