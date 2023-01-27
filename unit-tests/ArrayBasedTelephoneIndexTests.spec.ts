@@ -93,6 +93,14 @@ describe( "ArrayBasedTelephoneIndex unit-tests", () => {
         // Then the results contains 0 items...
         _searchWithCriteriaAndAssertOnlyNamesReturned( 'C', [] )
     } )
+
+    it ("searchByCriteria( ' ' ) should return 0 results", () => { 
+        // Given the index is filled with the known test data...
+
+        // When I searchByCriteria for ' ' (whitespace)
+        // Then the results contains 0 items...
+        _searchWithCriteriaAndAssertOnlyNamesReturned( ' ', [] )        
+    } )
     
     function _searchWithCriteriaAndAssertOnlyNamesReturned( criteria: string, names: Array<string> )
     {
@@ -105,7 +113,7 @@ describe( "ArrayBasedTelephoneIndex unit-tests", () => {
             _assertSearchResultsContainsName( results, name )
         }
     }
-    
+
     function _assertSearchResultsContainsNItems( results: SearchResults, containsNItems: number )
     {
         assert.equal( results.count, containsNItems, "Search results should contain N items" )
