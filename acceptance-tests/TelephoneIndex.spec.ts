@@ -175,9 +175,21 @@ test( 'Empty search, 0 results are displayed and quick index is unselected', asy
 
   // ... and no item in the quick index is selected
   await assertThereAreNoSelectedQuickIndexItemsOn( page )
-})
+} )
 
 async function searchForOn( searchInput: string, on: Page )
 {
   await on.type( '#search-criteria', searchInput )
 }
+
+test( 'Search for A, 1 result is displayed', async( {page} ) => {
+  // Given I am on the home page with no search results shown
+  await navigatePageToHome( page )
+  await assertThereAreNoResultsDisplayedOn( page )
+
+  // When I search for "A"
+  await searchForOn( "A", page )
+
+  // Then there is 1 search result shown for Apple, Adam
+  await assertNameAppearsInSearchResultsOn( "Apple, Adam", page )
+} )

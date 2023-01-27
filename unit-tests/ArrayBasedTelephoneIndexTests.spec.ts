@@ -65,7 +65,7 @@ describe( "ArrayBasedTelephoneIndex unit-tests", () => {
 
         // Then there results contains no items
         _assertSearchResultsContainsNItems( results, 0 )
-    })
+    } )
 });
 
 function _assertSearchResultsContainsNItems( results: SearchResults, containsNItems: number )
