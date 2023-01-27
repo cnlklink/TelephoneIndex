@@ -104,7 +104,7 @@ describe( "ArrayBasedTelephoneIndex unit-tests", () => {
     
     function _searchWithCriteriaAndAssertOnlyNamesReturned( criteria: string, names: Array<string> )
     {
-        let results = _telephoneIndex.searchByCriteria( criteria )
+        let results = _telephoneIndex.searchByCriteria( criteria.trim() )
         
         _assertSearchResultsContainsNItems( results, names.length )
 
