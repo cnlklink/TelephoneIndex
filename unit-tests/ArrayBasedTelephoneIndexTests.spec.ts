@@ -66,11 +66,22 @@ describe( "ArrayBasedTelephoneIndex unit-tests", () => {
         // Then there results contains no items
         _assertSearchResultsContainsNItems( results, 0 )
     } )
+
+    it( "searchByCriteria( 'A' ) should return 1 result", () => { 
+        // Given the index is filled with the known test data...
+
+        // When I searchByCriteria for 'A'
+        let results = _telephoneIndex.searchByCriteria( 'A' )
+
+        // Then the results contains 1 item: "Apple, Adam"
+        _assertSearchResultsContainsNItems( results, 1 )
+        _assertSearchResultsContainsName( results, "Apple, Adam" )
+    } )
 });
 
 function _assertSearchResultsContainsNItems( results: SearchResults, containsNItems: number )
 {
-    assert.equal( containsNItems, results.count )
+    assert.equal( results.count, containsNItems, "Search results should contain N items" )
 }
 
 function _assertSearchResultsContainsName( results: SearchResults, containsName: string )
