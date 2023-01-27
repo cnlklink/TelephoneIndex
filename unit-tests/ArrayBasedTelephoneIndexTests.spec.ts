@@ -101,10 +101,18 @@ describe( "ArrayBasedTelephoneIndex unit-tests", () => {
         // Then the results contains 0 items...
         _searchWithCriteriaAndAssertOnlyNamesReturned( ' ', [] )        
     } )
+
+    it( "searchByCriteria( 'AA' ) should return 0 results", () => { 
+        // Given the index is filled with the known test data...
+
+        // When I searchByCriteria for 'AA'
+        // Then the results contains 0 items...
+        _searchWithCriteriaAndAssertOnlyNamesReturned( 'AA', [] )  
+    } )
     
     function _searchWithCriteriaAndAssertOnlyNamesReturned( criteria: string, names: Array<string> )
     {
-        let results = _telephoneIndex.searchByCriteria( criteria.trim() )
+        let results = _telephoneIndex.searchByCriteria( criteria )
         
         _assertSearchResultsContainsNItems( results, names.length )
 

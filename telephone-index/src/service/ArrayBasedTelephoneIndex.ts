@@ -44,7 +44,14 @@ class ArrayBasedTelephoneIndex implements TelephoneIndex
 
   searchByCriteria( criteria: string ): SearchResults 
   {
-    let filterBySearchCriteria = new RegExp( `[${criteria}]`, "i" )
+    let trimmedCriteria = criteria.trim()
+
+    if( trimmedCriteria === '' )
+    {
+      return { entries: [], count: 0 }
+    }
+
+    let filterBySearchCriteria = new RegExp( `${trimmedCriteria}`, "i" )
 
     return this._arrayOfEntriesToSearchResults( 
       this._filterEntriesWithRegExp( filterBySearchCriteria ) 
