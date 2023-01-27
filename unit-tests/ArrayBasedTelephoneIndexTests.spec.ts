@@ -61,50 +61,67 @@ describe( "ArrayBasedTelephoneIndex unit-tests", () => {
         _telephoneIndex.fillWithNRandomEntries( 100 )
 
         // When I searchByCriteria for ''
-        let results = _telephoneIndex.searchByCriteria( '' )
-
         // Then there results contains no items
-        _assertSearchResultsContainsNItems( results, 0 )
+        _searchWithCriteriaAndAssertOnlyNamesReturned( '', [] )
     } )
 
     it( "searchByCriteria( 'A' ) should return 1 result", () => { 
         // Given the index is filled with the known test data...
 
         // When I searchByCriteria for 'A'
-        let results = _telephoneIndex.searchByCriteria( 'A' )
-
         // Then the results contains 1 item: "Apple, Adam"
-        _assertSearchResultsContainsNItems( results, 1 )
-        _assertSearchResultsContainsName( results, "Apple, Adam" )
+        _searchWithCriteriaAndAssertOnlyNamesReturned( 'A', [
+            "Apple, Adam"
+        ] )
     } )
     
     it( "searchByCriteria( 'B' ) should return 2 results", () => { 
         // Given the index is filled with the known test data...
 
         // When I searchByCriteria for 'B'
-        let results = _telephoneIndex.searchByCriteria( 'B' )
-
         // Then the results contains 2 items...
-        _assertSearchResultsContainsNItems( results, 2 )
-        _assertSearchResultsContainsName( results, "Brown, Bob" )
-        _assertSearchResultsContainsName( results, "Blueberry, Billy" )
+        _searchWithCriteriaAndAssertOnlyNamesReturned( 'B', [
+            "Brown, Bob",
+            "Blueberry, Billy"
+        ])
     } )
-});
 
-function _assertSearchResultsContainsNItems( results: SearchResults, containsNItems: number )
-{
-    assert.equal( results.count, containsNItems, "Search results should contain N items" )
-}
+    it( "searchByCriteria( 'C' ) should return 0 results", () => { 
+        // Given the index is filled with the known test data...
 
-function _assertSearchResultsContainsName( results: SearchResults, containsName: string )
-{
-    for( let entry of results.entries)
+        // When I searchByCriteria for 'C'
+        // Then the results contains 0 items...
+        _searchWithCriteriaAndAssertOnlyNamesReturned( 'C', [] )
+    } )
+    
+    function _searchWithCriteriaAndAssertOnlyNamesReturned( criteria: string, names: Array<string> )
     {
-        if( entry.name === containsName )
+        let results = _telephoneIndex.searchByCriteria( criteria )
+        
+        _assertSearchResultsContainsNItems( results, names.length )
+
+        for( let name of names )
         {
-            return 
+            _assertSearchResultsContainsName( results, name )
         }
     }
+    
+    function _assertSearchResultsContainsNItems( results: SearchResults, containsNItems: number )
+    {
+        assert.equal( results.count, containsNItems, "Search results should contain N items" )
+    }
+    
+    function _assertSearchResultsContainsName( results: SearchResults, containsName: string )
+    {
+        for( let entry of results.entries)
+        {
+            if( entry.name === containsName )
+            {
+                return 
+            }
+        }
+    
+        assert.fail( 'SearchResults does not contain: ' + containsName )
+    }
+});
 
-    assert.fail( 'SearchResults does not contain: ' + containsName )
-}
