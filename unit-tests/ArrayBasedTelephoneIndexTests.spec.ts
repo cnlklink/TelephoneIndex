@@ -109,6 +109,26 @@ describe( "ArrayBasedTelephoneIndex unit-tests", () => {
         // Then the results contains 0 items...
         _searchWithCriteriaAndAssertOnlyNamesReturned( 'AA', [] )  
     } )
+
+    it( "searchByCriteria( 'Adam' ) returns 1 result", () => { 
+        // Given the index is filled with the known test data...
+
+        // When I searchByCriteria for 'Adam'
+        // Then the results contains 1 items...
+        _searchWithCriteriaAndAssertOnlyNamesReturned( 'Adam', [ "Apple, Adam" ] ) 
+    } )
+
+    it( "searchByCriteria(...) is case insensitive", () => { 
+        // Given the index is filled with the known test data...
+
+        // When I searchByCriteria for results in different case
+        // Then the results are the same...
+        _searchWithCriteriaAndAssertOnlyNamesReturned( 'Adam', [ "Apple, Adam" ] )
+        _searchWithCriteriaAndAssertOnlyNamesReturned( 'adam', [ "Apple, Adam" ] )
+        _searchWithCriteriaAndAssertOnlyNamesReturned( 'AdAm', [ "Apple, Adam" ] )
+        _searchWithCriteriaAndAssertOnlyNamesReturned( 'BlueBerry', [ "Blueberry, Billy" ] )
+        _searchWithCriteriaAndAssertOnlyNamesReturned( 'BILLY', [ "Blueberry, Billy" ] )
+    } )
     
     function _searchWithCriteriaAndAssertOnlyNamesReturned( criteria: string, names: Array<string> )
     {
