@@ -179,6 +179,7 @@ test( 'Empty search, 0 results are displayed and quick index is unselected', asy
 
 async function searchForOn( searchInput: string, on: Page )
 {
+  await on.fill( '#search-criteria', '' )
   await on.type( '#search-criteria', searchInput )
 }
 
@@ -192,4 +193,19 @@ test( 'Search for A, 1 result is displayed', async( {page} ) => {
 
   // Then there is 1 search result shown for Apple, Adam
   await assertNameAppearsInSearchResultsOn( "Apple, Adam", page )
+} )
+
+test( 'Search for A then B, 2 result is displayed', async( {page} ) => {
+  // Given I displaying search results for 'A'
+  await navigatePageToHome( page )
+  await searchForOn( "A", page )
+  await assertThereAreNSearchResultsDisplayedOn( 1, page )
+
+  // When I search for "B"
+  await searchForOn( "B", page )
+
+  // Then there are 2 search results shown...
+  await assertThereAreNSearchResultsDisplayedOn( 2, page )
+  await assertNameAppearsInSearchResultsOn( "Brown, Bob", page )
+  await assertNameAppearsInSearchResultsOn( "Blueberry, Billy", page )
 } )
