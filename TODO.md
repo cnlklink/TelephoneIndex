@@ -20,8 +20,8 @@
 * Search:
   * ~~Acceptance test: Empty search, no results found~~
   * ~~Acceptance test: type 1 character, see multiple results starting w/ that character~~
-  * Acceptance test: type first name, see multiple results w/ that first name
-  * Acceptance test: type full name, see one result
+  * ~~Acceptance test: type first name, see multiple results w/ that first name~~
+  * ~~Acceptance test: type full name, see one result~~
 * Add some style
 * Move helper functions in TelephoneIndex.spec.ts into a custom Page class
 * Move service/ layer out into it's own package
