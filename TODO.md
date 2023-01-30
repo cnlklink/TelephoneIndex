@@ -19,7 +19,7 @@
   * ~~Acceptance test: Click C, no results are shown but C is selected~~
 * Search:
   * ~~Acceptance test: Empty search, no results found~~
-  * Acceptance test: type 1 character, see multiple results starting w/ that character
+  * ~~Acceptance test: type 1 character, see multiple results starting w/ that character~~
   * Acceptance test: type first name, see multiple results w/ that first name
   * Acceptance test: type full name, see one result
 * Add some style

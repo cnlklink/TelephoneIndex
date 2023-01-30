@@ -7,6 +7,8 @@ class ArrayBasedTelephoneIndex implements TelephoneIndex
     this.createEntryWithFirstLast( "Adam", "Apple" )
     this.createEntryWithFirstLast( "Bob", "Brown" )
     this.createEntryWithFirstLast( "Billy", "Blueberry" )
+    this.createEntryWithFirstLast( "John", "Dimond" )
+    this.createEntryWithFirstLast( "John", "Dinglemooh" )
   }
 
   fillWithNRandomEntries( n: number ): void 
