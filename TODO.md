@@ -22,7 +22,7 @@
   * ~~Acceptance test: type 1 character, see multiple results starting w/ that character~~
   * ~~Acceptance test: type first name, see multiple results w/ that first name~~
   * ~~Acceptance test: type full name, see one result~~
-* Bug: quick index item stays highlighted after entering a criteria into the search bar
+* ~~Bug: quick index item stays highlighted after entering a criteria into the search bar~~
 * Bug: clicking on a quick index item should clear the search bar
 * Add some style
 * Move helper functions in TelephoneIndex.spec.ts into a custom Page class
