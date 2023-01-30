@@ -234,3 +234,17 @@ test( 'Search for "Dimond, John", only 1 result is displayed', async( {page} ) =
   await assertThereAreNSearchResultsDisplayedOn( 1, page )
   await assertNameAppearsInSearchResultsOn( "Dimond, John", page )
 } )
+
+test( 'Click Quick Index B then search, quick index highlight goes away', async( {page} ) => {
+  // Given the quick index for 'B' is shown
+  await navigatePageToHome( page )
+  await clickQuickIndexItemOn( 'B', page )
+  await assertThereAreNSearchResultsDisplayedOn( 2, page )
+  
+  // When I search for...
+  await searchForOn( "Dimond, John", page )
+  
+  // Then 1 result is displayed and nothing is highlighted in the quick index
+  await assertThereAreNSearchResultsDisplayedOn( 1, page )
+  await assertQuickIndexItemIsHighlightedOn( 'B', false, page )
+} )
