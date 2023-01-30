@@ -222,3 +222,15 @@ test( 'Search for John, 2 results are displayed', async( {page} ) => {
   await assertNameAppearsInSearchResultsOn( "Dimond, John", page )
   await assertNameAppearsInSearchResultsOn( "Dinglemooh, John", page )
 } )
+
+test( 'Search for "Dimond, John", only 1 result is displayed', async( {page} ) => {
+  // Given I am on the telephone index page
+  await navigatePageToHome( page )
+  
+  // When I search for "Dimond, John"
+  await searchForOn( "Dimond, John", page  )
+
+  // Then only 1 result is shown...
+  await assertThereAreNSearchResultsDisplayedOn( 1, page )
+  await assertNameAppearsInSearchResultsOn( "Dimond, John", page )
+} )
