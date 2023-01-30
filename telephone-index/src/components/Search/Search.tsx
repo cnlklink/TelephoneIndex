@@ -8,13 +8,14 @@ import SearchResultsList from './SearchResultsList'
 type SearchProps = {
     searchResults: SearchResults,
     onSearch?: ( criteria: string ) => void
+    criteria?: string
 }
 
 function Search( props: SearchProps ) 
 {
     return (
         <div className='search'>
-            <SearchBar onCriteriaChanged={ props.onSearch }/>
+            <SearchBar criteria={ props.criteria } onCriteriaChanged={ props.onSearch }/>
             <SearchResultsList searchResults={props.searchResults}/>
         </div>
     )

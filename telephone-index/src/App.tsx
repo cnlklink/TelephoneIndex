@@ -15,6 +15,9 @@ let _setSearchResults: ( searchResults: SearchResults ) => void
 let _selectedQuickIndexItem: string 
 let _setSelectedQuickIndexItem: ( selectedQuickIndexItem: string ) => void
 
+let _enteredSearchCriteria: string
+let _setEnteredSearchCriteria: ( enteredSearchCriteria: string ) => void
+
 function App() 
 {
   _setTitle()
@@ -27,7 +30,7 @@ function App()
 
       <QuickIndex selectedItem = { _selectedQuickIndexItem } onItemSelected= { _quickIndexItemSelectedHandler } />
 
-      <Search searchResults= { _searchResults } onSearch={ _searchHandler } />
+      <Search criteria={ _enteredSearchCriteria } searchResults={ _searchResults } onSearch={ _searchHandler } />
     </div>
   );
 }
@@ -54,6 +57,7 @@ function _quickIndexItemSelectedHandler( item: string )
 {
   _publishSearchResults( _telephoneIndex.searchByQuickIndexItem( item ) )
   _setSelectedQuickIndexItem( item )
+  _setEnteredSearchCriteria( '' )
 }
 
 function _searchHandler( criteria: string )

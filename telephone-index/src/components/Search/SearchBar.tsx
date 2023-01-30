@@ -1,6 +1,7 @@
 import React from 'react';
 
 type SearchBarProps = {
+    criteria?: string,
     onCriteriaChanged?: ( criteria: string ) => void
 }
 
@@ -19,7 +20,7 @@ function SearchBar( props: SearchBarProps )
                 <div className="search-bar__controls">
                     <div className="search-bar__control">
                         <label> Search: </label>
-                        <input id="search-criteria" name="search-criteria" type="text" onChange={ searchCriteriaChangedHandler }/>
+                        <input id="search-criteria" name="search-criteria" type="text" onChange={ searchCriteriaChangedHandler } value={ props.criteria }/>
                     </div>
                 </div>
             </form>
