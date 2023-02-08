@@ -15,7 +15,7 @@ function SearchResultsList( props: SearchResultsListProps )
         <div id="search-results-list">
           {
             results.map( (result, _) => {
-              return <SearchResult entry={result}/>
+              return <SearchResult key={result.id} entry={result}/>
             } )
           }
         </div>

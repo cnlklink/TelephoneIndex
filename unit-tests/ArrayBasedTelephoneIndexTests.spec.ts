@@ -159,5 +159,40 @@ describe( "ArrayBasedTelephoneIndex unit-tests", () => {
     
         assert.fail( 'SearchResults does not contain: ' + containsName )
     }
+
+    it( "createEntryWithFirstLast should add entries with sequential ID values", () => {
+        // Given an empty telephone index
+        let myIndex = new ArrayBasedTelephoneIndex()
+
+        // When I create three new entries and then search for those three names
+        myIndex.createEntryWithFirstLast( "One", "Test" )
+        let results1 = myIndex.searchByCriteria( "Test, One" )
+
+        myIndex.createEntryWithFirstLast( "Two", "Test" )
+        let results2 = myIndex.searchByCriteria( "Test, Two" )
+
+        myIndex.createEntryWithFirstLast( "Three", "Test" )
+        let results3 = myIndex.searchByCriteria( "Test, Three" )
+
+        // Then the first entry has id = 1
+        //   and the second entry has id = 2
+        //   and the third has id = 3
+        _assertSearchResultsContainsEntryWithId( results1, 1 )
+        _assertSearchResultsContainsEntryWithId( results2, 2 )
+        _assertSearchResultsContainsEntryWithId( results3, 3 )
+    })
+
+    function _assertSearchResultsContainsEntryWithId( results: SearchResults, containsId: number )
+    {
+        for( let entry of results.entries)
+        {
+            if( entry.id === containsId )
+            {
+                return 
+            }
+        }
+    
+        assert.fail( 'SearchResults does not contain entry with ID: ' + containsId )
+    }
 });
 

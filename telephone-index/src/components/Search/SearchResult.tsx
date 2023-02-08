@@ -1,3 +1,4 @@
+import { isAssertEntry } from 'typescript';
 import { TelephoneIndexEntry } from '../../service/TelephoneIndex';
 
 type SearchResultProps = {
@@ -6,7 +7,7 @@ type SearchResultProps = {
 
 function SearchResult( props: SearchResultProps ) 
 {
-    return <div className="search-result">{props.entry.name}</div>
+    return <div className="search-result" key={props.entry.id} >{props.entry.name}</div>
 }
 
 export default SearchResult;

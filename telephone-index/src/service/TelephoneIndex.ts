@@ -1,5 +1,6 @@
 export type TelephoneIndexEntry =
 {
+  id: number
   name: string
 }
 

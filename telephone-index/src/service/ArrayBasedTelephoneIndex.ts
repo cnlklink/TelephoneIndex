@@ -21,10 +21,17 @@ class ArrayBasedTelephoneIndex implements TelephoneIndex
       )
     }
   }
-  
+
+  _pickARandomNameFrom( from: Array<string> ): string 
+  {
+    let randomIndex = Math.floor(Math.random() * from.length)
+    return from[randomIndex]
+  }
+    
   createEntryWithFirstLast( firstName: string, lastName: string ): TelephoneIndexEntry 
   {
     let newEntry = {
+      id: this._getNextEntryId(),
       name: lastName + ", " + firstName 
     }
 
@@ -33,10 +40,13 @@ class ArrayBasedTelephoneIndex implements TelephoneIndex
     return newEntry
   }
 
-  _pickARandomNameFrom( from: Array<string> ): string 
+  _getNextEntryId(): number 
   {
-    let randomIndex = Math.floor(Math.random() * from.length)
-    return from[randomIndex]
+    let ret = this._nextEntryId
+
+    this._nextEntryId++
+
+    return ret
   }
 
   getNumberOfEntries(): number 
@@ -83,6 +93,8 @@ class ArrayBasedTelephoneIndex implements TelephoneIndex
       this._filterEntriesWithRegExp( filterByFirstLetterInLastName ) 
     )
   }
+
+  _nextEntryId: number = 1
 
   _entries: Array<TelephoneIndexEntry> = []
 
