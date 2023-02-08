@@ -1,4 +1,3 @@
-import { isAssertEntry } from 'typescript';
 import { TelephoneIndexEntry } from '../../service/TelephoneIndex';
 
 type SearchResultProps = {
