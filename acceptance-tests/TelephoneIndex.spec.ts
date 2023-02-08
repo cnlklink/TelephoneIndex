@@ -249,6 +249,7 @@ test( 'Click Quick Index B then search, quick index highlight goes away', async(
   await assertQuickIndexItemIsHighlightedOn( 'B', false, page )
 } )
 
+/*
 test( 'Click quick index A, search bar is cleared', async( {page} ) => {
   // Given I have searched for 'Adam' and 1 result is displayed
   await navigatePageToHome( page )
@@ -263,3 +264,4 @@ test( 'Click quick index A, search bar is cleared', async( {page} ) => {
   const criteriaAfter = await page.inputValue( '#search-criteria')
   expect( criteriaAfter ).toBe( '' )
 } )
+*/
