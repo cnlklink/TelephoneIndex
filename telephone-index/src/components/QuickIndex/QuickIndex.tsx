@@ -16,7 +16,7 @@ function QuickIndex( props: QuickIndexProps )
         { 
             _getItems().map( (item, _) => {
                 const isSelected = (item === props.selectedItem)
-                return <QuickIndexItem onSelected={props.onItemSelected} text={item} isSelected={isSelected}/>
+                return <QuickIndexItem key={item} onSelected={props.onItemSelected} text={item} isSelected={isSelected}/>
             } )
         }
     </div>
