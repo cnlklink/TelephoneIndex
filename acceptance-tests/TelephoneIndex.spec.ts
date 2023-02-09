@@ -266,12 +266,34 @@ test( 'Click quick index A, search bar is cleared', async( {page} ) => {
 } )
 */
 
+test( 'Navigate to home page, Entry Form is not visible', async( {page} ) => {
+  // Given we are entering the telephone index for the first time
+  // When I navigate to the home page
+  await navigatePageToHome( page )
+
+  // Then the entry form is not displayed
+  assertEntryFormIsVisibleOn( false, page )
+} )
+
+async function assertEntryFormIsVisibleOn( isVisible: boolean, on: Page )
+{
+  if( isVisible )
+  {
+    await expect( on.locator( '#entry-form' ) ).toBeVisible()
+    await expect( on.locator( '#entry-form__createButton' ) ).toBeVisible()
+  }
+  else 
+  {
+    await expect( on.locator( '#entry-form' ) ).toBeHidden()
+    await expect( on.locator( '#entry-form__createButton' ) ).toBeHidden()
+  }
+}
+
 test( 'Entry Form, is visible', async( {page} ) => {
   // Given we are entering the telephone index for the first time
   // When I navigate to the home page
   await navigatePageToHome( page )
 
   // Then the entry form is displayed
-  await expect( page.locator( '#entry-form' ) ).toBeVisible()
-  await expect( page.locator( '#entry-form__addButton' ) ).toBeVisible()
+  await assertEntryFormIsVisibleOn( true, page )
 } )
