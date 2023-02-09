@@ -272,28 +272,34 @@ test( 'Navigate to home page, Entry Form is not visible', async( {page} ) => {
   await navigatePageToHome( page )
 
   // Then the entry form is not displayed
-  assertEntryFormIsVisibleOn( false, page )
+  await assertEntryFormIsVisibleOn( false, page )
 } )
 
 async function assertEntryFormIsVisibleOn( isVisible: boolean, on: Page )
 {
   if( isVisible )
   {
-    await expect( on.locator( '#entry-form' ) ).toBeVisible()
+    await expect( on.locator( '#entry-editor__form' ) ).toBeVisible()
     await expect( on.locator( '#entry-form__createButton' ) ).toBeVisible()
   }
   else 
   {
-    await expect( on.locator( '#entry-form' ) ).toBeHidden()
-    await expect( on.locator( '#entry-form__createButton' ) ).toBeHidden()
+    await expect( on.locator( '#entry-editor__hidden' ) ).toBeVisible()
   }
 }
 
-test( 'Entry Form, is visible', async( {page} ) => {
+test( 'Click New Entry, Entry Form is disabled', async( {page} ) => {
   // Given we are entering the telephone index for the first time
-  // When I navigate to the home page
   await navigatePageToHome( page )
+
+  // When I click the New Entry button
+  await clickNewEntryOn( page )
 
   // Then the entry form is displayed
   await assertEntryFormIsVisibleOn( true, page )
 } )
+
+async function clickNewEntryOn( on: Page )
+{
+  
+}
