@@ -272,6 +272,6 @@ test( 'Entry Form, is visible', async( {page} ) => {
   await navigatePageToHome( page )
 
   // Then the entry form is displayed
-  const locator = page.locator( '#entry-form' )
-  await expect( locator ).toBeVisible()
+  await expect( page.locator( '#entry-form' ) ).toBeVisible()
+  await expect( page.locator( '#entry-form__addButton' ) ).toBeVisible()
 } )

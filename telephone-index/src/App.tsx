@@ -28,6 +28,10 @@ function App()
     <div className="Telephone-Index-App">
       <Header/>
 
+      <form id="entry-form">
+          <button id="entry-form__addButton"> Add New Entry </button>
+      </form>
+
       <QuickIndex selectedItem = { _selectedQuickIndexItem } onItemSelected= { _quickIndexItemSelectedHandler } />
 
       <Search criteria={ _enteredSearchCriteria } searchResults={ _searchResults } onSearch={ _searchHandler } />
