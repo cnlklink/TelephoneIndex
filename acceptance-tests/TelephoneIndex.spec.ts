@@ -265,3 +265,13 @@ test( 'Click quick index A, search bar is cleared', async( {page} ) => {
   expect( criteriaAfter ).toBe( '' )
 } )
 */
+
+test( 'Entry Form, is visible', async( {page} ) => {
+  // Given we are entering the telephone index for the first time
+  // When I navigate to the home page
+  await navigatePageToHome( page )
+
+  // Then the entry form is displayed
+  const locator = page.locator( '#entry-form' )
+  await expect( locator ).toBeVisible()
+} )
