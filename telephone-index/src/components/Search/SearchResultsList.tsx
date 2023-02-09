@@ -12,13 +12,12 @@ function SearchResultsList( props: SearchResultsListProps )
 
   return (
     <div id="search-results">
-        <div id="search-results-list">
-          {
-            results.map( (result, _) => {
-              return <SearchResult key={result.id} entry={result}/>
+        <ul id="search-results-list">
+          { results.map( (result, _) => {
+            return <SearchResult key={result.id} entry={result}/>
             } )
           }
-        </div>
+        </ul>
         <p id="search-results-where"> 
           { props.searchResults.count === 0 ? "No results found." : props.searchResults.count + " results found." }
         </p>

@@ -6,7 +6,9 @@ type SearchResultProps = {
 
 function SearchResult( props: SearchResultProps ) 
 {
-    return <div className="search-result" key={props.entry.id} >{props.entry.name}</div>
+    return <li>
+        <div className="search-result" key={props.entry.id} >{props.entry.name}</div>
+    </li>
 }
 
 export default SearchResult;
