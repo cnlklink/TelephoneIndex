@@ -24,6 +24,7 @@
   * ~~Acceptance test: type full name, see one result~~
 * ~~Bug: quick index item stays highlighted after entering a criteria into the search bar~~
 * Bug: clicking on a quick index item should clear the search bar
+* Figure out unit testing for React components
 * Add some style
 * Move helper functions in TelephoneIndex.spec.ts into a custom Page class
 * Move service/ layer out into it's own package

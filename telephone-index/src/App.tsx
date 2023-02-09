@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Header from './components/Layout/Header'
 import QuickIndex from './components/QuickIndex/QuickIndex'
 import Search from './components/Search/Search'
+import EntryForm from './components/EntryForm/EntryForm'
 import { SearchResults } from './service/TelephoneIndex'
 import ArrayBasedTelephoneIndex from './service/ArrayBasedTelephoneIndex'
 import './App.css';
