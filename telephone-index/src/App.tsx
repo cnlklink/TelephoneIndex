@@ -29,9 +29,7 @@ function App()
     <div className="Telephone-Index-App">
       <Header/>
 
-      <form id="entry-form">
-          <button id="entry-form__addButton"> Add New Entry </button>
-      </form>
+      <EntryForm/>
 
       <QuickIndex selectedItem = { _selectedQuickIndexItem } onItemSelected= { _quickIndexItemSelectedHandler } />
 
