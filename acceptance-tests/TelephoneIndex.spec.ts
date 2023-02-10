@@ -301,5 +301,6 @@ test( 'Click New Entry, Entry Form is disabled', async( {page} ) => {
 
 async function clickNewEntryOn( on: Page )
 {
-  
+  const newEntryButton = await on.$( '#entry-editor__new-entry-button' )
+  newEntryButton?.click()
 }

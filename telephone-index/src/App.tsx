@@ -19,9 +19,6 @@ let _setSelectedQuickIndexItem: ( selectedQuickIndexItem: string ) => void
 let _enteredSearchCriteria: string
 let _setEnteredSearchCriteria: ( enteredSearchCriteria: string ) => void
 
-let _showEntryEditor: boolean
-let _setShowEntryEditor: ( showEntryEditor: boolean ) => void
-
 function App() 
 {
   _setTitle()
@@ -32,7 +29,7 @@ function App()
     <div className="Telephone-Index-App">
       <Header/>
 
-      <EntryEditor isVisible = { _showEntryEditor } />
+      <EntryEditor/>
 
       <QuickIndex selectedItem = { _selectedQuickIndexItem } onItemSelected= { _quickIndexItemSelectedHandler } />
 
@@ -57,8 +54,6 @@ function _initializeReactState()
 
   
   [_selectedQuickIndexItem, _setSelectedQuickIndexItem] = useState<string>( '' );
-
-  [_showEntryEditor, _setShowEntryEditor] = useState<boolean>( false );
 }
 
 function _quickIndexItemSelectedHandler( item: string )

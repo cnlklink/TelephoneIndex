@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import EntryForm from './EntryForm'
 
-type EntryEditorProps = {
-    isVisible: boolean
-}
-
-function EntryEditor( props: EntryEditorProps ) 
+function EntryEditor() 
 {
+    const [showEntryEditor, setShowEntryEditor] = useState<boolean>( false );
+
+    const newEntryClickHandler = () => {
+        setShowEntryEditor( true )
+    }
+
     return (
         <div id="entry-editor">
-            { props.isVisible ? <EntryForm/> : <div id="entry-editor__hidden"> Add New Entry </div> }
+            { showEntryEditor ? <EntryForm/> : <div id="entry-editor__hidden"> <button id="entry-editor__new-entry-button" onClick= {newEntryClickHandler} > Add New Entry </button> </div> }
         </div>
     )
 }
