@@ -288,7 +288,7 @@ async function assertEntryFormIsVisibleOn( isVisible: boolean, on: Page )
   }
 }
 
-test( 'Click New Entry, Entry Form is disabled', async( {page} ) => {
+test( 'Click New Entry, Entry Form is displayed', async( {page} ) => {
   // Given we are entering the telephone index for the first time
   await navigatePageToHome( page )
 
@@ -302,5 +302,19 @@ test( 'Click New Entry, Entry Form is disabled', async( {page} ) => {
 async function clickNewEntryOn( on: Page )
 {
   const newEntryButton = await on.$( '#entry-editor__new-entry-button' )
-  newEntryButton?.click()
+  await newEntryButton?.click()
 }
+
+test( 'Click Cancel, Entry form is hidden', async( {page} ) => {
+  // Given the new entry form is displayed
+  await navigatePageToHome( page )
+  await clickNewEntryOn( page )
+  await assertEntryFormIsVisibleOn( true, page )
+
+  // When I click the Cancel button
+  const cancelButton = await page.$( '#entry-form__cancel-button' )
+  await cancelButton?.click()
+
+  // Then the entry form is hidden
+  await assertEntryFormIsVisibleOn( false, page )
+} )

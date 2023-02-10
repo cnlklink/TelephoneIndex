@@ -11,9 +11,13 @@ function EntryEditor()
         setShowEntryEditor( true )
     }
 
+    const newEntryCancelClickHandler = () => { 
+        setShowEntryEditor( false )
+    }
+
     return (
         <div id="entry-editor">
-            { showEntryEditor ? <EntryForm/> : <Toolbar onAddNewEntryClick = { newEntryClickHandler } /> }
+            { showEntryEditor ? <EntryForm onCancelClick = { newEntryCancelClickHandler } /> : <Toolbar onAddNewEntryClick = { newEntryClickHandler }/> }
         </div>
     )
 }
