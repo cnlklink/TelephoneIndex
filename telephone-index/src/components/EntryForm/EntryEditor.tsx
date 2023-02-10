@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import EntryForm from './EntryForm'
+import Toolbar from './Toolbar'
 
 function EntryEditor() 
 {
@@ -12,7 +13,7 @@ function EntryEditor()
 
     return (
         <div id="entry-editor">
-            { showEntryEditor ? <EntryForm/> : <div id="entry-editor__hidden"> <button id="entry-editor__new-entry-button" onClick= {newEntryClickHandler} > Add New Entry </button> </div> }
+            { showEntryEditor ? <EntryForm/> : <Toolbar onAddNewEntryClick = { newEntryClickHandler } /> }
         </div>
     )
 }
