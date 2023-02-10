@@ -249,22 +249,19 @@ test( 'Click Quick Index B then search, quick index highlight goes away', async(
   await assertQuickIndexItemIsHighlightedOn( 'B', false, page )
 } )
 
-/*
-test( 'Click quick index A, search bar is cleared', async( {page} ) => {
+test( 'Click quick index "B", search bar is cleared', async( {page} ) => {
   // Given I have searched for 'Adam' and 1 result is displayed
   await navigatePageToHome( page )
   await searchForOn( 'Adam', page )
   await assertNameAppearsInSearchResultsOn( 'Apple, Adam', page )
-  // expect( await page.inputValue( '#search-criteria') ).toBe( 'Adam' )
   
-  // When I click 'A' in the quick index
+  // When I click 'B' in the quick index
   await clickQuickIndexItemOn( 'B', page )
 
   // Then the search bar has been emptied
   const criteriaAfter = await page.inputValue( '#search-criteria')
   expect( criteriaAfter ).toBe( '' )
 } )
-*/
 
 test( 'Navigate to home page, Entry Form is not visible', async( {page} ) => {
   // Given we are entering the telephone index for the first time
